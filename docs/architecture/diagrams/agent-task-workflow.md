@@ -2,27 +2,27 @@
 
 This diagram illustrates the flow of tasks through the multi-agent system, from assignment to completion.
 
-```
-┌─────────────────────────────────────────────────────────────────────────┐
-│                         Agent Task Workflow                             │
-│                                                                         │
-│  ┌───────────────┐   ┌───────────────┐   ┌───────────────────────────┐  │
-│  │ Task          │   │ Task          │   │ Task                      │  │
-│  │ Assignment    │──►│ Analysis      │──►│ Decomposition             │  │
-│  └───────────────┘   └───────────────┘   └───────────────────────────┘  │
-│                                                      │                   │
-│                                                      ▼                   │
-│  ┌───────────────┐   ┌───────────────┐   ┌───────────────────────────┐  │
-│  │ Task          │   │ Task          │   │ Child Task                │  │
-│  │ Completion    │◄──│ Execution     │◄──│ Creation                  │  │
-│  └───────────────┘   └───────────────┘   └───────────────────────────┘  │
-│         │                                                                │
-│         ▼                                                                │
-│  ┌───────────────────────────────────────────────────────────────────┐  │
-│  │                         Task Documentation                        │  │
-│  └───────────────────────────────────────────────────────────────────┘  │
-│                                                                         │
-└─────────────────────────────────────────────────────────────────────────┘
+```mermaid
+graph TD
+    %% Define the task workflow process
+    subgraph AgentTaskWorkflow["Agent Task Workflow"]
+        %% Task stages
+        TA["Task\nAssignment"] --> TAN["Task\nAnalysis"]
+        TAN --> TD["Task\nDecomposition"]
+        TD --> CTC["Child Task\nCreation"]
+        CTC --> TE["Task\nExecution"]
+        TE --> TC["Task\nCompletion"]
+        TC --> TDOC["Task\nDocumentation"]
+    end
+
+    %% Styling
+    classDef workflow fill:#f5f5f5,stroke:#333,stroke-width:2px
+    classDef task fill:#d1e7dd,stroke:#333,stroke-width:1px
+    classDef document fill:#cfe2ff,stroke:#333,stroke-width:1px
+
+    class AgentTaskWorkflow workflow
+    class TA,TAN,TD,CTC,TE,TC task
+    class TDOC document
 ```
 
 ## Process Stages

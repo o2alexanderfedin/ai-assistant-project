@@ -208,18 +208,18 @@ The diagrams are organized into several categories:
 
 All diagrams in this repository follow these conventions:
 
-1. **Markdown diagrams** - Using ASCII/Unicode art in code blocks for maximum compatibility and version control
+1. **Mermaid diagrams** - Using Mermaid syntax for interactive, maintainable diagrams with improved visualization
 2. **Directory-based organization** - Diagrams are categorized by their type
 3. **Component consistency** - Common shapes and symbols for similar components
 4. **Direction consistency** - Data flow generally moves top-to-bottom and left-to-right
 5. **Layout standards** - Components aligned on a grid for improved readability
 
-For detailed diagrams, we use the following conventions:
-- Rectangles (`│` `─` `┌` `┐` `└` `┘`): Components and systems
-- Arrows (`▲` `▼` `◄` `►`): Data flow and relationships
-- Double-line borders: External systems
-- Solid lines: Direct connections
-- Dashed lines: Indirect or optional connections
+For Mermaid diagrams, we use the following conventions:
+- `graph TD`: Top-down graph layout for flow diagrams
+- `subgraph`: Group related components together
+- `-->`: Directional relationships
+- `<-->`: Bidirectional relationships
+- `classDef`: Custom styling for different component types
 
 ## 🛠️ Contributing Guidelines
 

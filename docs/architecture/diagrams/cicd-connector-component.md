@@ -2,30 +2,38 @@
 
 This diagram illustrates the internal structure of the CI/CD Connector component.
 
-```
-┌─────────────────────────────────────────────────────────┐
-│                   CI/CD Connector                       │
-│                                                         │
-│  ┌──────────────────┐        ┌─────────────────────┐    │
-│  │   Connector      │        │     Pipeline        │    │
-│  │     Manager      │◄──────►│      Manager        │    │
-│  └──────────────────┘        └─────────────────────┘    │
-│           ▲                           ▲                 │
-│           │                           │                 │
-│           ▼                           ▼                 │
-│  ┌──────────────────┐        ┌─────────────────────┐    │
-│  │   Platform       │        │     Build           │    │
-│  │    Adapters      │◄──────►│     Monitor         │    │
-│  └──────────────────┘        └─────────────────────┘    │
-│           ▲                           ▲                 │
-│           │                           │                 │
-│           ▼                           ▼                 │
-│  ┌──────────────────┐        ┌─────────────────────┐    │
-│  │   Deployment     │        │      Test           │    │
-│  │    Manager       │◄──────►│     Analyzer        │    │
-│  └──────────────────┘        └─────────────────────┘    │
-│                                                         │
-└─────────────────────────────────────────────────────────┘
+```mermaid
+graph TD
+    %% Define the CI/CD connector
+    subgraph CIConnector["CI/CD Connector"]
+        %% Define components
+        CM["Connector\nManager"] 
+        PM["Pipeline\nManager"]
+        PA["Platform\nAdapters"]
+        BM["Build\nMonitor"]
+        DM["Deployment\nManager"]
+        TA["Test\nAnalyzer"]
+
+        %% Define relationships between components
+        CM <--> PM
+        CM <--> PA
+        PM <--> BM
+        PA <--> BM
+        PA <--> DM
+        BM <--> TA
+        DM <--> TA
+    end
+
+    %% Styling
+    classDef cicd fill:#fff8f0,stroke:#333,stroke-width:2px
+    classDef manager fill:#d1e7dd,stroke:#333,stroke-width:1px
+    classDef adapter fill:#cfe2ff,stroke:#333,stroke-width:1px
+    classDef monitor fill:#f8d7da,stroke:#333,stroke-width:1px
+
+    class CIConnector cicd
+    class CM,PM,DM manager
+    class PA adapter
+    class BM,TA monitor
 ```
 
 ## Component Descriptions

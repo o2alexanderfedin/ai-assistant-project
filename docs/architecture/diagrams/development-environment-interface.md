@@ -2,31 +2,34 @@
 
 This diagram illustrates the API interfaces provided by the Development Environment component.
 
-```
-┌───────────────────────────────────────────────────────────────────┐
-│                 Development Environment Interface                 │
-│                                                                   │
-│  ┌───────────────────┐                  ┌───────────────────┐     │
-│  │  Environment      │                  │    Template       │     │
-│  │  Management API   │◄────────────────►│    Management API │     │
-│  └───────────────────┘                  └───────────────────┘     │
-│           ▲                                      ▲                │
-│           │                                      │                │
-│           │                                      │                │
-│           ▼                                      ▼                │
-│  ┌───────────────────────────────────────────────────────────┐    │
-│  │              Environment Configuration Schema              │    │
-│  └───────────────────────────────────────────────────────────┘    │
-│           ▲                                      ▲                │
-│           │                                      │                │
-│           │                                      │                │
-│           ▼                                      ▼                │
-│  ┌───────────────────┐                  ┌───────────────────┐     │
-│  │  State            │                  │    Resource       │     │
-│  │  Management API   │◄────────────────►│    Management API │     │
-│  └───────────────────┘                  └───────────────────┘     │
-│                                                                   │
-└───────────────────────────────────────────────────────────────────┘
+```mermaid
+graph TD
+    %% Define the Development Environment Interface
+    subgraph DevEnvInterface["Development Environment Interface"]
+        %% Define APIs
+        EMA["Environment\nManagement API"] 
+        TMA["Template\nManagement API"]
+        ECS["Environment\nConfiguration Schema"]
+        SMA["State\nManagement API"]
+        RMA["Resource\nManagement API"]
+
+        %% Define relationships
+        EMA <--> TMA
+        EMA <--> ECS
+        TMA <--> ECS
+        ECS <--> SMA
+        ECS <--> RMA
+        SMA <--> RMA
+    end
+
+    %% Styling
+    classDef interface fill:#f8f9fa,stroke:#333,stroke-width:2px
+    classDef api fill:#d1e7dd,stroke:#333,stroke-width:1px
+    classDef schema fill:#cfe2ff,stroke:#333,stroke-width:1px
+
+    class DevEnvInterface interface
+    class EMA,TMA,SMA,RMA api
+    class ECS schema
 ```
 
 ## Interface Descriptions

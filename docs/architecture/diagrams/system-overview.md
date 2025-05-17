@@ -2,53 +2,78 @@
 
 This diagram illustrates the high-level architecture of the multi-agent system, showing the key components and their relationships.
 
-```
-┌─────────────────────────────────────────────────────────────────────────┐
-│                         Multi-Agent System                              │
-│                                                                         │
-│  ┌───────────────┐   ┌───────────────┐   ┌───────────────────────────┐  │
-│  │  Orchestrator │   │    Analyzer   │   │       Agent Factory       │  │
-│  │     Agent     │◄──┼──►    Agent    │◄──┼──►                        │  │
-│  └───────────────┘   └───────────────┘   └───────────────────────────┘  │
-│         ▲                    ▲                        ▲                 │
-│         │                    │                        │                 │
-│         ▼                    ▼                        ▼                 │
-│  ┌───────────────────────────────────────────────────────────────────┐  │
-│  │                 Communication Hub (MCP Protocol)                  │  │
-│  └───────────────────────────────────────────────────────────────────┘  │
-│         ▲                    ▲                        ▲                 │
-│         │                    │                        │                 │
-│         ▼                    ▼                        ▼                 │
-│  ┌───────────────┐   ┌───────────────┐   ┌───────────────────────────┐  │
-│  │  Implementer  │   │     Tester    │   │        Reviewer           │  │
-│  │     Agent     │   │     Agent     │   │         Agent             │  │
-│  └───────────────┘   └───────────────┘   └───────────────────────────┘  │
-│         ▲                    ▲                        ▲                 │
-│         │                    │                        │                 │
-│         ▼                    ▼                        ▼                 │
-│  ┌───────────────────────────────────────────────────────────────────┐  │
-│  │                     Shared Components                             │  │
-│  │                                                                   │  │
-│  │  ┌────────────┐  ┌────────────┐  ┌────────────┐  ┌────────────┐  │  │
-│  │  │   Agent    │  │    Task    │  │ Knowledge  │  │ Performance│  │  │
-│  │  │   State    │  │   History  │  │    Base    │  │   Metrics  │  │  │
-│  │  │   Store    │  │            │  │            │  │            │  │  │
-│  │  └────────────┘  └────────────┘  └────────────┘  └────────────┘  │  │
-│  └───────────────────────────────────────────────────────────────────┘  │
-│         ▲                    ▲                        ▲                 │
-│         │                    │                        │                 │
-│         ▼                    ▼                        ▼                 │
-│  ┌───────────────────────────────────────────────────────────────────┐  │
-│  │                    External Integrations                          │  │
-│  │                                                                   │  │
-│  │  ┌────────────┐  ┌────────────┐  ┌────────────┐  ┌────────────┐  │  │
-│  │  │   GitHub   │  │   CI/CD    │  │Development │  │            │  │  │
-│  │  │ Connector  │  │ Connector  │  │Environment │  │            │  │  │
-│  │  │            │  │            │  │            │  │            │  │  │
-│  │  └────────────┘  └────────────┘  └────────────┘  └────────────┘  │  │
-│  └───────────────────────────────────────────────────────────────────┘  │
-│                                                                         │
-└─────────────────────────────────────────────────────────────────────────┘
+```mermaid
+graph TD
+    %% Define the overall system boundary
+    subgraph MultiAgentSystem["Multi-Agent System"]
+        %% Core Agents
+        subgraph CoreAgents["Core Agents"]
+            OA["Orchestrator\nAgent"] 
+            AA["Analyzer\nAgent"]
+            AF["Agent\nFactory"]
+        end
+
+        %% Communication Hub
+        CH["Communication Hub\n(MCP Protocol)"]
+
+        %% Agent Types
+        subgraph AgentTypes["Agent Types"]
+            IA["Implementer\nAgent"]
+            TA["Tester\nAgent"]
+            RA["Reviewer\nAgent"]
+        end
+
+        %% Shared Components
+        subgraph SharedComponents["Shared Components"]
+            ASS["Agent State\nStore"]
+            TH["Task\nHistory"]
+            KB["Knowledge\nBase"]
+            PM["Performance\nMetrics"]
+        end
+
+        %% External Integrations
+        subgraph ExternalIntegrations["External Integrations"]
+            GC["GitHub\nConnector"]
+            CC["CI/CD\nConnector"]
+            DE["Development\nEnvironment"]
+            EX[""]
+        end
+
+        %% Core agent connections
+        OA <--> AA
+        AA <--> AF
+
+        %% Connection to communication hub
+        OA <--> CH
+        AA <--> CH
+        AF <--> CH
+
+        %% Agent connections to communication hub
+        CH <--> IA
+        CH <--> TA
+        CH <--> RA
+
+        %% Shared component connections
+        IA <--> SharedComponents
+        TA <--> SharedComponents
+        RA <--> SharedComponents
+
+        %% External integration connections
+        SharedComponents <--> ExternalIntegrations
+    end
+
+    %% Styling
+    classDef system fill:#f9f9f9,stroke:#333,stroke-width:2px
+    classDef agents fill:#d1e7dd,stroke:#333,stroke-width:1px
+    classDef communication fill:#cfe2ff,stroke:#333,stroke-width:1px
+    classDef components fill:#f8d7da,stroke:#333,stroke-width:1px
+    classDef integrations fill:#fff3cd,stroke:#333,stroke-width:1px
+
+    class MultiAgentSystem system
+    class CoreAgents,AgentTypes agents
+    class CH communication
+    class SharedComponents components
+    class ExternalIntegrations integrations
 ```
 
 ## Component Descriptions

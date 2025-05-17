@@ -2,30 +2,38 @@
 
 This diagram illustrates the internal structure of the Development Environment component.
 
-```
-┌─────────────────────────────────────────────────────────┐
-│                Development Environment                  │
-│                                                         │
-│  ┌──────────────────┐        ┌─────────────────────┐    │
-│  │   Environment    │        │     Dependency      │    │
-│  │     Manager      │◄──────►│      Manager        │    │
-│  └──────────────────┘        └─────────────────────┘    │
-│           ▲                           ▲                 │
-│           │                           │                 │
-│           ▼                           ▼                 │
-│  ┌──────────────────┐        ┌─────────────────────┐    │
-│  │   Environment    │        │     Isolation       │    │
-│  │    Templates     │◄──────►│      System         │    │
-│  └──────────────────┘        └─────────────────────┘    │
-│           ▲                           ▲                 │
-│           │                           │                 │
-│           ▼                           ▼                 │
-│  ┌──────────────────┐        ┌─────────────────────┐    │
-│  │      State       │        │      Resource       │    │
-│  │    Persister     │◄──────►│     Controller      │    │
-│  └──────────────────┘        └─────────────────────┘    │
-│                                                         │
-└─────────────────────────────────────────────────────────┘
+```mermaid
+graph TD
+    %% Define the development environment
+    subgraph DevEnv["Development Environment"]
+        %% Define components
+        EM["Environment\nManager"] 
+        DM["Dependency\nManager"]
+        ET["Environment\nTemplates"]
+        IS["Isolation\nSystem"]
+        SP["State\nPersister"]
+        RC["Resource\nController"]
+
+        %% Define relationships between components
+        EM <--> DM
+        EM <--> ET
+        DM <--> IS
+        ET <--> IS
+        SP <--> ET
+        SP <--> RC
+        IS <--> RC
+    end
+
+    %% Styling
+    classDef env fill:#f0fff0,stroke:#333,stroke-width:2px
+    classDef manager fill:#d1e7dd,stroke:#333,stroke-width:1px
+    classDef system fill:#cfe2ff,stroke:#333,stroke-width:1px
+    classDef persister fill:#f8d7da,stroke:#333,stroke-width:1px
+
+    class DevEnv env
+    class EM,DM manager
+    class ET,IS system
+    class SP,RC persister
 ```
 
 ## Component Descriptions
