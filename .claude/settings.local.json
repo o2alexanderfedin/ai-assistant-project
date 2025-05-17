@@ -14,7 +14,9 @@
       "Bash(git flow init:*)",
       "Bash(git remote add:*)",
       "Bash(git push:*)",
-      "Bash(git flow release start:*)"
+      "Bash(git flow release start:*)",
+      "Bash(git flow release finish:*)",
+      "Bash(git tag:*)"
     ],
     "deny": []
   }
