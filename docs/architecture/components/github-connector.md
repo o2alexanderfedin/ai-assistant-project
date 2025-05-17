@@ -1098,40 +1098,61 @@ function assign_task() {
 
 ## 📊 Pull Request Workflow
 
-The GitHub Connector supports the complete pull request workflow:
+The GitHub Connector supports the pull request workflow according to the system's PR policy:
 
-1. **PR Creation**:
-   - Create PRs with appropriate metadata
+1. **PR Policy Enforcement**:
+   - PRs are only created when actual artifacts are committed to the repository
+   - Reviewers have final authority to decide whether work merits a PR
+   - If work doesn't meet quality standards, branches may be deleted without creating PRs
+   - All PR decisions are documented in the GitHub issue
+
+2. **PR Creation**:
+   - Reviewers create PRs when work meets quality standards
    - Link PRs to issues for tracking
    - Set PR status (draft, ready)
    - Apply labels for categorization
 
-2. **PR Review Process**:
+3. **PR Review Process**:
    - Submit PR reviews
    - Approve or request changes
    - Add line-specific comments
    - Track review status
 
-3. **PR Management**:
+4. **PR Management**:
    - Update PR content and metadata
    - Address review comments
    - Handle merge conflicts
    - Close or merge PRs
 
-4. **PR Integration**:
-   - Merge with appropriate strategy
-   - Clean up branches after merge
-   - Update related issues
-   - Trigger post-merge workflows
+5. **Branch Disposition**:
+   - Merge branches with valuable work
+   - Delete branches with substandard work
+   - Document disposition decisions in issues
 
 Example PR workflow functions:
 
 ```bash
-# Create a pull request for a task
+# Create a pull request for a task (called by Reviewer after evaluating work quality)
 function create_pr_for_task() {
   task_id="$1"
   branch_name="$2"
   base_branch="${3:-main}"
+  reviewer_decision="$4"  # "approve" or "reject"
+  
+  # If the reviewer decides to reject the work, delete the branch
+  if [[ "$reviewer_decision" == "reject" ]]; then
+    # Document the decision in the task
+    ./scripts/github_connector.sh issue-comment "$task_id" "⚠️ Reviewer has determined that work on branch '$branch_name' does not meet quality standards. Branch will be deleted without creating a PR."
+    
+    # Delete the branch
+    ./scripts/github_connector.sh repo-delete-branch "$branch_name"
+    
+    # Update task status
+    update_task_status "$task_id" "needs_rework"
+    
+    echo "Branch '$branch_name' deleted for task #$task_id per reviewer decision"
+    return 0
+  fi
   
   # Get task details
   task_details=$(./scripts/github_connector.sh issue-get "$task_id")
@@ -1152,6 +1173,9 @@ Resolves #$task_id
 
 ## Notes
 - [Any additional notes]
+
+## Reviewer Assessment
+✅ Reviewer has determined this work meets quality standards and merits inclusion in the codebase.
 BODY
 )
   
@@ -1163,7 +1187,7 @@ BODY
     pr_number=$(echo "$result" | jq -r '.number')
     
     # Add comment to the task about the PR
-    ./scripts/github_connector.sh issue-comment "$task_id" "Pull Request #$pr_number created for this task."
+    ./scripts/github_connector.sh issue-comment "$task_id" "✅ Reviewer approved work quality. Pull Request #$pr_number created for this task."
     
     # Update task status
     update_task_status "$task_id" "in_review"

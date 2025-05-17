@@ -74,28 +74,45 @@ The interface supports the following issue operations:
    }): Promise<Issue[]>
    ```
 
-## 🔄 Pull Request Workflow
+## 🔄 Pull Request Policy & Workflow
 
-The interface supports the complete pull request lifecycle:
+The interface implements the system's Pull Request policy, enforcing when PRs should and should not be created:
 
-1. **Branch Creation**:
+1. **PR Policy Rules**:
+   - PRs are only created when actual repository artifacts are committed
+   - Reviewer has final authority to decide if work meets quality standards
+   - If work doesn't meet standards, branches are deleted without creating PRs
+   - All branch disposition decisions are documented in GitHub issues
+
+2. **Branch Management**:
    ```typescript
    createBranch(name: string, baseBranch: string): Promise<Branch>
+   deleteBranch(name: string, reason: string): Promise<boolean>
    ```
 
-2. **Pull Request Creation**:
+3. **Pull Request Creation (Reviewer Only)**:
    ```typescript
    createPullRequest({
      title: string,
      body: string,
      head: string,
      base: string,
+     quality_assessment: string, // Reviewer's quality evaluation
      draft?: boolean,
      maintainer_can_modify?: boolean
    }): Promise<PullRequest>
    ```
 
-3. **Review Submission**:
+4. **Work Rejection (Without PR)**:
+   ```typescript
+   rejectWork(branchName: string, issueNumber: number, reason: string): Promise<{
+     branchDeleted: boolean,
+     issueUpdated: boolean,
+     statusChanged: string
+   }>
+   ```
+
+5. **Review Submission**:
    ```typescript
    createReview(pullNumber: number, {
      body: string,
@@ -108,7 +125,7 @@ The interface supports the complete pull request lifecycle:
    }): Promise<Review>
    ```
 
-4. **Merge Operations**:
+6. **Merge Operations**:
    ```typescript
    mergePullRequest(pullNumber: number, {
      merge_method?: 'merge' | 'squash' | 'rebase',
@@ -177,4 +194,4 @@ Testing the GitHub interface requires:
 <!-- 🧭 NAVIGATION -->
 **Navigation**: [Home](../README.md) | [Interface Index](./README.md) | [MCP Interface](./mcp-protocol.md) | [Agent Interface](./agent-interface.md)
 
-*Last updated: 2024-05-16*
+*Last updated: 2025-05-17*

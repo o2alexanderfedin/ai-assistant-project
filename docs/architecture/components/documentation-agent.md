@@ -579,6 +579,6 @@ function check_documentation_sync() {
 ---
 
 <!-- 🧭 NAVIGATION -->
-**Navigation**: [Home](../README.md) | [Components](./README.md) | [Developer Agent](./developer-agent.md) | [Reviewer Agent](./reviewer-agent.md)
+**Navigation**: [Home](../README.md) | [Components](./README.md) | [Implementer Agent](./implementer-agent.md) | [Reviewer Agent](./reviewer-agent.md)
 
 *Last updated: 2024-05-16*
