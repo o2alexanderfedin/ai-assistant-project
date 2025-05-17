@@ -322,7 +322,7 @@ For new tasks, the Orchestrator delegates task breakdown to a specialized Decomp
 10. Decomposition-Reviewer tags the original task as processed
 11. Decomposition-Reviewer notifies Orchestrator that decomposition is complete
 
-> **Note**: Pull Requests are only created when actual code or documentation changes have been committed to the repository. For decomposition activities that only involve analyzing tasks and creating/linking GitHub issues, no PR is needed.
+> **Note**: Pull Requests are only created when actual artifacts (such as code, documentation, or images) have been committed to the repository. For decomposition activities that only involve analyzing tasks and creating/linking GitHub issues, no PR is needed. See the [Pull Request Policy](#pull-request-policy) section for details.
 
 ### Task Assignment to Implementation Teams
 
@@ -381,12 +381,12 @@ Once a task is analyzed and ready for implementation:
    - Reviewer provides feedback on criteria failures if needed
    - Implementer makes additional commits to address feedback
 4. When all criteria are met:
-   - Reviewer creates a pull request from the gitflow branch (since implementation always produces code artifacts)
+   - Reviewer creates a pull request from the gitflow branch (since implementation tasks produce repository artifacts)
    - Reviewer updates the GitHub issue with implementation link
    - Reviewer tags the issue as implemented
 5. Reviewer notifies Orchestrator that the task is completed with PR link
 
-> **Note**: Pull Requests are always required for implementation tasks since they produce actual code/documentation changes in the repository. This ensures proper code review and maintains the gitflow workflow for all code changes.
+> **Note**: Pull Requests are always required for implementation tasks since they produce actual artifacts (code, documentation, assets) in the repository. This ensures proper review and maintains the gitflow workflow for all repository changes. See the [Pull Request Policy](#pull-request-policy) section for details.
 
 ### Task Completion and Status Tracking
 
@@ -529,16 +529,23 @@ graph TD
 The system follows these guidelines for when to create Pull Requests:
 
 1. **PRs ARE Required When**:
-   - Actual code or documentation changes have been committed to the repository
-   - Implementation tasks (which always produce artifacts)
-   - Any work that modifies files in the repository
+   - Actual artifacts (code, documentation, images, etc.) have been committed to the repository
+   - Implementation tasks that produce files stored in the repository
+   - Any work that modifies or adds files tracked by git
 
 2. **PRs ARE NOT Required When**:
-   - Decomposition activities only involve analyzing tasks and creating GitHub issues
-   - No repository artifacts were created or modified
-   - Tasks only involve issue linking, assignment, or metadata changes in GitHub
+   - Tasks only involve creating or updating GitHub issues
+   - Task decomposition that only results in issue creation/linking
+   - Work that only modifies GitHub metadata (labels, assignments, etc.)
+   - No files were committed to the repository
 
-This policy ensures that PRs are used efficiently, only for changes that require formal review and integration.
+Examples:
+- A Decomposition Pair that only creates subtasks in GitHub does NOT need a PR
+- An Implementation Pair adding code files DOES need a PR
+- A Documentation Pair submitting diagrams or text files DOES need a PR
+- Teams only updating issue status or adding comments do NOT need a PR
+
+This policy ensures that PRs are used efficiently, only for changes that require formal review and integration into the codebase.
 
 ## Edge Cases
 
