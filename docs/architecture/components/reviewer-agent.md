@@ -543,6 +543,6 @@ FEEDBACK
 ---
 
 <!-- 🧭 NAVIGATION -->
-**Navigation**: [Home](../README.md) | [Components](./README.md) | [Developer Agent](./developer-agent.md) | [Tester Agent](./tester-agent.md)
+**Navigation**: [Home](../README.md) | [Components](./README.md) | [Implementer Agent](./implementer-agent.md) | [Tester Agent](./tester-agent.md)
 
 *Last updated: 2024-05-16*

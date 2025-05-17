@@ -35,7 +35,7 @@ This directory contains detailed documentation for each component in the multi-a
 
 ## 🛠️ Development Agent Components
 
-- [👨‍💻 Developer Agent](./developer-agent.md) - Implements solutions following TDD methodology
+- [👨‍💻 Implementer Agent](./implementer-agent.md) - Implements solutions against acceptance criteria
 - [🧪 Tester Agent](./tester-agent.md) - Creates and maintains tests
 - [👀 Reviewer Agent](./reviewer-agent.md) - Performs code reviews and provides feedback
 - [📚 Documentation Agent](./documentation-agent.md) - Creates and maintains documentation

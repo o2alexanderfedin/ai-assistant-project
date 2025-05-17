@@ -38,9 +38,9 @@ Key architectural components include:
 The system includes several specialized agent types:
 
 1. **Orchestrator Agent**: Manages task distribution and inter-agent coordination
-2. **Analyzer Agent**: Analyzes incoming tasks for routing decisions
-3. **Developer Agents**: Implement software solutions following TDD methodology
-4. **Reviewer Agents**: Review content and provide feedback
+2. **Decomposition Agents**: Break down complex tasks into simpler subtasks
+3. **Reviewer Agents**: Create acceptance criteria and evaluate work against them
+4. **Implementer Agents**: Implement solutions against established acceptance criteria
 5. **Tester Agents**: Focus on test creation and validation
 6. **Documentation Agents**: Create and maintain documentation
 7. **DevOps Agents**: Handle deployment and infrastructure concerns
@@ -54,12 +54,13 @@ The system is designed to support diverse agent specializations across multiple 
 
 Agents communicate via the Model Context Protocol (MCP), acting as both servers and clients. The communication follows a structured pattern:
 
-1. Task requests are received by the Orchestrator
-2. The Orchestrator delegates to the Analyzer
-3. The Analyzer recommends an agent assignment
-4. The Orchestrator assigns the task to the appropriate agent
-5. Agents can request assistance from other agents
-6. All communication is logged for debugging and improvement
+1. Task requests are received by the Orchestrator from GitHub
+2. For complex tasks, the Orchestrator delegates to the Decomposition Pair
+3. The Decomposition Pair breaks down complex tasks into subtasks
+4. The Orchestrator assigns tasks to the appropriate Reviewer-Implementer pairs
+5. Reviewer creates acceptance criteria and evaluates the Implementer's work
+6. Agents communicate via standardized MCP protocol over STDIO
+7. All communication is logged for debugging and improvement
 
 ## 📊 Task Management
 
@@ -67,11 +68,13 @@ Tasks are managed as GitHub issues using the GitHub CLI (gh) with the following 
 
 1. Issues are created either externally or by agents using `gh issue create`
 2. The Orchestrator monitors the issue tracker for new and updated issues using `gh issue list`
-3. Issues are analyzed by the Analyzer and assigned to appropriate agents
-4. Agents pull available tasks using a Kanban approach
-5. Agents update issues with progress, questions, and results using `gh issue comment`
-6. Task completion is verified before issues are closed using `gh issue close`
-7. Tasks can span any domain, from software development to creative writing to research
+3. Complex tasks are sent to the Decomposition Pair for analysis and breakdown
+4. Tasks are assigned to appropriate Reviewer-Implementer pairs
+5. Reviewers document acceptance criteria in the GitHub issue
+6. Implementers update issues with progress, questions, and results using `gh issue comment`
+7. Reviewers evaluate work and decide whether to create a PR or delete the branch
+8. Task completion is verified before issues are closed using `gh issue close`
+9. Tasks can span any domain, from software development to creative writing to research
 
 ## 🧩 GitHub Integration
 
@@ -80,8 +83,10 @@ The system integrates deeply with GitHub using the GitHub CLI (gh):
 1. Issues serve as the primary task management mechanism
 2. Issue tags are used for categorization, priority setting, and domain identification
 3. Agents create, update, comment on, and tag issues using the gh CLI
-4. Pull requests are created and reviewed by agents when appropriate for the task domain
-5. Issue linking maintains comprehensive relationships between tasks:
+4. Pull requests are created by Reviewers only when work meets quality standards
+5. PRs are only created when actual repository artifacts are committed
+6. If work doesn't meet standards, Reviewers can delete branches without creating PRs
+7. Issue linking maintains comprehensive relationships between tasks:
    ```bash
    # Example of linking parent and child tasks
    gh issue create --title "Implement user authentication system" --body "..." --label "feature,backend"
