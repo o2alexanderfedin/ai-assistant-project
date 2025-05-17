@@ -16,7 +16,8 @@
       "Bash(git push:*)",
       "Bash(git flow release start:*)",
       "Bash(git flow release finish:*)",
-      "Bash(git tag:*)"
+      "Bash(git tag:*)",
+      "Bash(grep:*)"
     ],
     "deny": []
   }
