@@ -18,6 +18,7 @@
   - [Complete Task Lifecycle](#complete-task-lifecycle)
   - [Task Decomposition Flow](#task-decomposition-flow)
   - [Multi-Agent Orchestration](#multi-agent-orchestration)
+- [Pull Request Policy](#pull-request-policy)
 - [Edge Cases](#edge-cases)
 
 ## Overview
@@ -273,7 +274,7 @@ sequenceDiagram
     
     Note over DecompReviewer: Create decomposition criteria<br>(complexity thresholds, subtask structure rules)
     DecompReviewer->>GitHub: Document criteria in task/issue
-    DecompReviewer->>GitHub: Create gitflow branch<br>(decomp/task-id)
+    DecompReviewer->>GitHub: Create gitflow branch<br>(decomp/task-id) if needed
     DecompReviewer->>DecompImplementer: MCP: Task with decomposition criteria and branch
     
     Note over DecompImplementer: Evaluate task against criteria
@@ -283,15 +284,17 @@ sequenceDiagram
         DecompImplementer->>GitHub: Establish task dependencies
         DecompImplementer->>GitHub: Link subtasks to parent
         DecompImplementer->>GitHub: Tag tasks appropriately
-        Note over DecompImplementer: Commit changes to decomp branch
+        Note over DecompImplementer: Commit changes if creating artifacts
     end
     
     DecompImplementer->>DecompReviewer: MCP: Decomposition results for review
     Note over DecompReviewer: Verify decomposition against all criteria<br>Use all available tools to evaluate correctness
     
-    DecompReviewer->>GitHub: Create pull request from decomp branch
+    alt If Code Artifacts Were Created
+        DecompReviewer->>GitHub: Create pull request from decomp branch
+    end
     DecompReviewer->>GitHub: Tag task as processed
-    DecompReviewer->>Orchestrator: MCP: Decomposition completed with PR link
+    DecompReviewer->>Orchestrator: MCP: Decomposition completed
 ```
 
 For new tasks, the Orchestrator delegates task breakdown to a specialized Decomposition Pair working within the gitflow workflow:
@@ -316,9 +319,10 @@ For new tasks, the Orchestrator delegates task breakdown to a specialized Decomp
 9. Decomposition-Reviewer verifies the decomposition meets all acceptance criteria
    - Uses all available tools and methods to evaluate correctness
    - Ensures all criteria are satisfied
-10. Decomposition-Reviewer creates a pull request from the decomposition branch
-11. Decomposition-Reviewer tags the original task as processed
-12. Decomposition-Reviewer notifies Orchestrator that decomposition is complete with PR link
+10. Decomposition-Reviewer tags the original task as processed
+11. Decomposition-Reviewer notifies Orchestrator that decomposition is complete
+
+> **Note**: Pull Requests are only created when actual artifacts (such as code, documentation, or images) have been committed to the repository. For decomposition activities that only involve analyzing tasks and creating/linking GitHub issues, no PR is needed. See the [Pull Request Policy](#pull-request-policy) section for details.
 
 ### Task Assignment to Implementation Teams
 
@@ -377,10 +381,12 @@ Once a task is analyzed and ready for implementation:
    - Reviewer provides feedback on criteria failures if needed
    - Implementer makes additional commits to address feedback
 4. When all criteria are met:
-   - Reviewer creates a pull request from the gitflow branch
+   - Reviewer creates a pull request from the gitflow branch (since implementation tasks produce repository artifacts)
    - Reviewer updates the GitHub issue with implementation link
    - Reviewer tags the issue as implemented
 5. Reviewer notifies Orchestrator that the task is completed with PR link
+
+> **Note**: Pull Requests are always required for implementation tasks since they produce actual artifacts (code, documentation, assets) in the repository. This ensures proper review and maintains the gitflow workflow for all repository changes. See the [Pull Request Policy](#pull-request-policy) section for details.
 
 ### Task Completion and Status Tracking
 
@@ -517,6 +523,29 @@ graph TD
     style GP1 fill:#ffeedd,stroke:#333,stroke-width:1px
     style GP2 fill:#ffeedd,stroke:#333,stroke-width:1px
 ```
+
+## Pull Request Policy
+
+The system follows these guidelines for when to create Pull Requests:
+
+1. **PRs ARE Required When**:
+   - Actual artifacts (code, documentation, images, etc.) have been committed to the repository
+   - Implementation tasks that produce files stored in the repository
+   - Any work that modifies or adds files tracked by git
+
+2. **PRs ARE NOT Required When**:
+   - Tasks only involve creating or updating GitHub issues
+   - Task decomposition that only results in issue creation/linking
+   - Work that only modifies GitHub metadata (labels, assignments, etc.)
+   - No files were committed to the repository
+
+Examples:
+- A Decomposition Pair that only creates subtasks in GitHub does NOT need a PR
+- An Implementation Pair adding code files DOES need a PR
+- A Documentation Pair submitting diagrams or text files DOES need a PR
+- Teams only updating issue status or adding comments do NOT need a PR
+
+This policy ensures that PRs are used efficiently, only for changes that require formal review and integration into the codebase.
 
 ## Edge Cases
 
