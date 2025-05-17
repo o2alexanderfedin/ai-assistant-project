@@ -33,8 +33,8 @@ graph TD
     end
 
     subgraph "Agent Instances"
-        D1[Developer Agent 1]
-        D2[Developer Agent 2]
+        D1[Implementer Agent 1]
+        D2[Implementer Agent 2]
         T1[Tester Agent]
         R1[Reviewer Agent]
         Doc1[Documentation Agent]
@@ -393,4 +393,4 @@ graph TD
 <!-- 🧭 NAVIGATION -->
 **Navigation**: [Home](../README.md) | [System Overview](../system-overview.md)
 
-*Last updated: 2024-05-16*
+*Last updated: 2025-05-17*

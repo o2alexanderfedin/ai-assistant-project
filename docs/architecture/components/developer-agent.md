@@ -379,6 +379,8 @@ function extract_development_knowledge() {
 ---
 
 <!-- 🧭 NAVIGATION -->
-**Navigation**: [Home](../README.md) | [Components](./README.md) | [Tester Agent](./tester-agent.md) | [Orchestrator](./orchestrator.md)
+**Navigation**: [Home](../README.md) | [Components](./README.md) | [Tester Agent](./tester-agent.md) | [Implementer Agent](./implementer-agent.md) | [Orchestrator](./orchestrator.md)
 
-*Last updated: 2024-05-16*
+*Last updated: 2025-05-17*
+
+> **Note**: This document is deprecated. Please refer to [Implementer Agent](./implementer-agent.md) for the current implementation.

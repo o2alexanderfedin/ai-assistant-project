@@ -1104,7 +1104,7 @@ The GitHub Connector supports the pull request workflow according to the system'
    - PRs are only created when actual artifacts are committed to the repository
    - Reviewers have final authority to decide whether work merits a PR
    - If work doesn't meet quality standards, branches may be deleted without creating PRs
-   - All PR decisions are documented in the GitHub issue
+   - All branch disposition decisions are documented in GitHub issues
 
 2. **PR Creation**:
    - Reviewers create PRs when work meets quality standards
@@ -1427,4 +1427,4 @@ function load_configuration() {
 <!-- 🧭 NAVIGATION -->
 **Navigation**: [Home](../README.md) | [Components](./README.md) | [Performance Metrics](./performance-metrics.md) | [Task Queue](./task-queue.md)
 
-*Last updated: 2024-05-16*
+*Last updated: 2025-05-17*

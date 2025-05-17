@@ -1,6 +1,6 @@
 # Architecture Diagrams
 
-*Last Updated: May 16, 2025*
+*Last Updated: May 17, 2025*
 
 ## 📑 Table of Contents
 - [Overview](#overview)
@@ -25,7 +25,7 @@ The diagrams are organized into several categories:
 
 ### High-Level Architecture
 
-[system-overview.txt](system-overview.txt) - Text-based representation of the high-level system architecture.
+[system-overview.md](system-overview.md) - Markdown representation of the high-level system architecture.
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
@@ -80,7 +80,7 @@ The diagrams are organized into several categories:
 
 ### Development Environment Component
 
-[development-environment-component.txt](development-environment-component.txt) - Text-based representation of the Development Environment component.
+[development-environment-component.md](development-environment-component.md) - Markdown representation of the Development Environment component.
 
 ```
 ┌─────────────────────────────────────────────────────────┐
@@ -110,7 +110,7 @@ The diagrams are organized into several categories:
 
 ### CI/CD Connector Component
 
-[cicd-connector-component.txt](cicd-connector-component.txt) - Text-based representation of the CI/CD Connector component.
+[cicd-connector-component.md](cicd-connector-component.md) - Markdown representation of the CI/CD Connector component.
 
 ```
 ┌─────────────────────────────────────────────────────────┐
@@ -142,7 +142,7 @@ The diagrams are organized into several categories:
 
 ### Development Environment Interface
 
-[development-environment-interface.txt](development-environment-interface.txt) - Text-based representation of the Development Environment Interface.
+[development-environment-interface.md](development-environment-interface.md) - Markdown representation of the Development Environment Interface.
 
 ```
 ┌───────────────────────────────────────────────────────────────────┐
@@ -179,7 +179,7 @@ The diagrams are organized into several categories:
 
 ### Agent Task Workflow
 
-[agent-task-workflow.txt](agent-task-workflow.txt) - Text-based representation of the Agent Task Workflow.
+[agent-task-workflow.md](agent-task-workflow.md) - Markdown representation of the Agent Task Workflow.
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
@@ -208,7 +208,7 @@ The diagrams are organized into several categories:
 
 All diagrams in this repository follow these conventions:
 
-1. **Text-based diagrams** - Using ASCII/Unicode art for maximum compatibility and version control
+1. **Markdown diagrams** - Using ASCII/Unicode art in code blocks for maximum compatibility and version control
 2. **Directory-based organization** - Diagrams are categorized by their type
 3. **Component consistency** - Common shapes and symbols for similar components
 4. **Direction consistency** - Data flow generally moves top-to-bottom and left-to-right
@@ -240,3 +240,4 @@ When adding or updating diagrams:
 - [Components](../components/README.md)
 - [Interfaces](../interfaces/README.md)
 - [Related Log](../../logs/2025-05-16/system-diagrams-creation.md)
+- [Related Log](../../logs/2025-05-17/system-diagrams-update.md)
