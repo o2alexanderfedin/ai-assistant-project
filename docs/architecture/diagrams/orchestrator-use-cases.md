@@ -352,10 +352,18 @@ sequenceDiagram
         Note over Implementer: Revise implementation<br>Additional commits to branch
         Implementer->>Reviewer: MCP: Revised implementation
     else Implementation Approved
-        Reviewer->>GitHub: Create pull request from gitflow branch
-        Reviewer->>GitHub: Update issue with implementation link
-        Reviewer->>GitHub: Tag as implemented
-        Reviewer->>Orchestrator: MCP: Task completed with PR link
+        Note over Reviewer: Decide on branch disposition after work is done
+        alt Work Meets Requirements - Create PR
+            Reviewer->>GitHub: Create pull request from gitflow branch
+            Reviewer->>GitHub: Update issue with implementation link
+            Reviewer->>GitHub: Tag as implemented
+            Reviewer->>Orchestrator: MCP: Task completed with PR link
+        else Work Does Not Meet Requirements - Delete Branch
+            Reviewer->>GitHub: Delete gitflow branch (if not needed)
+            Reviewer->>GitHub: Document decision in issue
+            Reviewer->>GitHub: Tag as rejected/incomplete
+            Reviewer->>Orchestrator: MCP: Task rejected or incomplete
+        end
     end
 ```
 
@@ -380,13 +388,19 @@ Once a task is analyzed and ready for implementation:
    - Reviewer evaluates implementation against all acceptance criteria
    - Reviewer provides feedback on criteria failures if needed
    - Implementer makes additional commits to address feedback
-4. When all criteria are met:
-   - Reviewer creates a pull request from the gitflow branch (since implementation tasks produce repository artifacts)
-   - Reviewer updates the GitHub issue with implementation link
-   - Reviewer tags the issue as implemented
-5. Reviewer notifies Orchestrator that the task is completed with PR link
+4. After the Implementer's work is complete, the Reviewer evaluates and decides:
+   - If the work meets requirements and produces valuable artifacts:
+     - Reviewer creates a pull request from the gitflow branch
+     - Reviewer updates the GitHub issue with implementation link
+     - Reviewer tags the issue as implemented
+     - Reviewer notifies Orchestrator that the task is completed with PR link
+   - If the work does not meet requirements or is not valuable:
+     - Reviewer may delete the gitflow branch if it's not needed
+     - Reviewer documents the decision in the GitHub issue
+     - Reviewer tags the issue appropriately (rejected, incomplete, etc.)
+     - Reviewer notifies Orchestrator of the task status
 
-> **Note**: Pull Requests are always required for implementation tasks since they produce actual artifacts (code, documentation, assets) in the repository. This ensures proper review and maintains the gitflow workflow for all repository changes. See the [Pull Request Policy](#pull-request-policy) section for details.
+> **Note**: Pull Requests are only created when the work produced valuable artifacts that should be merged. The Reviewer has the authority to decide whether to create a PR or delete the branch based on the quality and value of the completed work. See the [Pull Request Policy](#pull-request-policy) section for details.
 
 ### Task Completion and Status Tracking
 
@@ -530,22 +544,31 @@ The system follows these guidelines for when to create Pull Requests:
 
 1. **PRs ARE Required When**:
    - Actual artifacts (code, documentation, images, etc.) have been committed to the repository
-   - Implementation tasks that produce files stored in the repository
-   - Any work that modifies or adds files tracked by git
+   - Implementation tasks that produce valuable files stored in the repository
+   - Any work that modifies or adds files tracked by git that should be kept
 
 2. **PRs ARE NOT Required When**:
    - Tasks only involve creating or updating GitHub issues
    - Task decomposition that only results in issue creation/linking
    - Work that only modifies GitHub metadata (labels, assignments, etc.)
    - No files were committed to the repository
+   - The Reviewer determines that the work does not meet quality standards or is not valuable
+
+3. **Reviewer Authority**:
+   - Reviewers have the final authority to decide whether work merits a PR
+   - After work is completed, Reviewers evaluate the results and decide to:
+     - Create a PR if the work should be merged into the codebase
+     - Delete the branch if the work is not of sufficient quality/value
+   - This decision must be documented in the GitHub issue
 
 Examples:
 - A Decomposition Pair that only creates subtasks in GitHub does NOT need a PR
-- An Implementation Pair adding code files DOES need a PR
-- A Documentation Pair submitting diagrams or text files DOES need a PR
+- An Implementation Pair adding quality code files DOES need a PR
+- An Implementation Pair whose work is deemed insufficient will have their branch deleted (NO PR)
+- A Documentation Pair submitting well-formed diagrams or text files DOES need a PR
 - Teams only updating issue status or adding comments do NOT need a PR
 
-This policy ensures that PRs are used efficiently, only for changes that require formal review and integration into the codebase.
+This policy ensures that PRs are used efficiently, only for changes that require formal review and integration into the codebase. It also gives Reviewers appropriate control over code quality by allowing them to reject work that doesn't meet standards.
 
 ## Edge Cases
 
@@ -579,4 +602,4 @@ The Orchestrator must handle various edge cases, including:
 - [Consolidated MCP Workflow](./consolidated-mcp-workflow.md)
 - [Orchestrator Component](../components/orchestrator.md)
 
-*Last updated: May 16, 2025*
+*Last updated: May 17, 2025*

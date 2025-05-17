@@ -9,7 +9,14 @@
       "Bash(git branch:*)",
       "Bash(git checkout:*)",
       "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git merge:*)",
+      "Bash(git flow init:*)",
+      "Bash(git remote add:*)",
+      "Bash(git push:*)",
+      "Bash(git flow release start:*)",
       "Bash(git flow release finish:*)",
+      "Bash(git tag:*)",
       "Bash(grep:*)"
     ],
     "deny": []
