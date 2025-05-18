@@ -1,7 +1,7 @@
-# 🔄 Agent Lifecycle and Kanban Task Management - 2024-05-16
+# 🔄 Agent Lifecycle and Kanban Task Management - 2025-05-16
 
 <!-- 📑 TABLE OF CONTENTS -->
-- [🔄 Agent Lifecycle and Kanban Task Management - 2024-05-16](#-agent-lifecycle-and-kanban-task-management---2024-05-16)
+- [🔄 Agent Lifecycle and Kanban Task Management - 2025-05-16](#-agent-lifecycle-and-kanban-task-management---2025-05-16)
   - [📋 Overview](#-overview)
   - [🔑 Key Architecture Decisions](#-key-architecture-decisions)
   - [🚀 On-Demand Agent Lifecycle](#-on-demand-agent-lifecycle)
@@ -141,4 +141,4 @@ For the next session, we plan to:
 <!-- 🧭 NAVIGATION -->
 **Navigation**: [Architecture Home](../../architecture/README.md) | [Implementation Approach](./implementation-approach.md)
 
-*Last updated: 2024-05-16*
+*Last updated: 2025-05-16*

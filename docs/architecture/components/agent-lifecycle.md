@@ -388,8 +388,8 @@ The system maintains a registry of active MCP servers:
       "pid": 12345,
       "status": "active",
       "task_id": "123",
-      "started_at": "2024-05-16T12:34:56Z",
-      "last_heartbeat": "2024-05-16T13:34:56Z"
+      "started_at": "2025-05-16T12:34:56Z",
+      "last_heartbeat": "2025-05-16T13:34:56Z"
     },
     ...
   ]
@@ -572,4 +572,4 @@ Comprehensive logging tracks the agent lifecycle:
 <!-- 🧭 NAVIGATION -->
 **Navigation**: [Home](../README.md) | [Component Index](./README.md) | [Agent Creation Process](./agent-creation-process.md)
 
-*Last updated: 2024-05-16*
+*Last updated: 2025-05-16*

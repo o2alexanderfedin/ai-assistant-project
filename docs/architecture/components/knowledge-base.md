@@ -782,8 +782,8 @@ Each knowledge item follows a structured format:
   "title": "Recursive Task Decomposition Pattern",
   "category": "pattern",
   "tags": ["decomposition", "recursion", "complexity", "task-management"],
-  "created_at": "2024-05-16T14:30:45Z",
-  "updated_at": "2024-05-16T15:20:15Z",
+  "created_at": "2025-05-16T14:30:45Z",
+  "updated_at": "2025-05-16T15:20:15Z",
   "source": "task_history",
   "content": "## Recursive Task Decomposition Pattern\n\n### Problem Context\nWhen facing tasks that are too complex to solve directly, but contain repeating structures or can be divided into similar sub-problems.\n\n### Solution Approach\n1. Identify the smallest self-contained sub-problem\n2. Create a solution template for this sub-problem\n3. Apply the template recursively to all similar sub-problems\n4. Combine the sub-solutions following the original problem structure\n\n### Applicability\n- Algorithm design\n- Content structuring\n- System architecture\n\n### Examples\n- Parsing nested JSON structures\n- Processing hierarchical document outlines\n- Implementing tree traversal algorithms\n\n### Effectiveness\n- Application count: 27\n- Success rate: 93%\n- Efficiency improvement: 76%\n\n### Usage Guidance\nMost effective when the sub-problems are truly independent. Less effective when there are many cross-dependencies between components."
 }
@@ -1159,4 +1159,4 @@ function integrate_with_agent_workflow() {
 <!-- 🧭 NAVIGATION -->
 **Navigation**: [Home](../README.md) | [Components](./README.md) | [Task History](./task-history.md) | [Performance Metrics](./performance-metrics.md)
 
-*Last updated: 2024-05-16*
+*Last updated: 2025-05-16*

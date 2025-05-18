@@ -54,4 +54,4 @@ Architecture decisions follow this process:
 <!-- 🧭 NAVIGATION -->
 **Navigation**: [Home](../README.md) | [System Overview](../system-overview.md) | [Requirements](../requirements.md)
 
-*Last updated: 2024-05-16*
+*Last updated: 2025-05-16*
