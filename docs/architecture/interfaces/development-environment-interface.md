@@ -1,10 +1,11 @@
 # Development Environment Interface
 
-*Last Updated: May 16, 2025*
+*Last Updated: May 17, 2025*
 
 ## 📑 Table of Contents
 - [Purpose](#purpose)
 - [Interface Definition](#interface-definition)
+- [Implementation Options](#implementation-options)
 - [Data Structures](#data-structures)
 - [API Methods](#api-methods)
 - [Integration Examples](#integration-examples)
@@ -28,6 +29,95 @@ The Development Environment interface exposes a shell-based API that follows UNI
 
 The primary interface is the `dev_env` command-line tool that provides a comprehensive set of subcommands for managing environments.
 
+## 🛠️ Implementation Options
+
+This interface can be implemented using one of two underlying technologies:
+
+### Nix Flakes Implementation
+
+[Nix](https://nix.dev/) provides strong reproducibility guarantees through a functional package manager approach:
+
+1. **Benefits**:
+   - Precise OS-level dependency pinning via flake.lock files
+   - Clear separation between development environments
+   - Shared cache for faster environment setup
+   - Works consistently across Intel and Apple Silicon architectures
+   - Rollback capability for environment changes
+   - Easier composition of tools from different domains
+
+2. **Considerations**:
+   - Steeper learning curve with Nix's functional language
+   - Requires Nix installation on all development systems
+   - First environment load times may be slower
+
+Example flake.nix template:
+```nix
+{
+  description = "Agent development environment";
+  
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
+    flake-utils.url = "github:numtide/flake-utils";
+  };
+  
+  outputs = { self, nixpkgs, flake-utils, ... }:
+    flake-utils.lib.eachDefaultSystem (system:
+      let
+        pkgs = nixpkgs.legacyPackages.${system};
+      in {
+        devShells.default = pkgs.mkShell {
+          buildInputs = with pkgs; [
+            nodejs_20
+            python311
+            git
+            # Additional tools as needed
+          ];
+          shellHook = ''
+            echo "Agent development environment activated"
+            export PROJECT_ROOT=$PWD
+          '';
+        };
+      }
+    );
+}
+```
+
+### Docker Implementation
+
+Docker provides container-based isolation through a container runtime:
+
+1. **Benefits**:
+   - Familiar container workflow
+   - Full isolation including filesystem, network, and processes
+   - Large ecosystem of existing images
+   - Straightforward for teams with Docker experience
+
+2. **Considerations**:
+   - Less precise dependency pinning at build time
+   - Different container images may be needed for different architectures
+   - More overhead than Nix environments
+   - Potential performance impact with volume mounts
+
+Example Dockerfile template:
+```dockerfile
+FROM node:20-slim
+
+RUN apt-get update && apt-get install -y \
+    python3 \
+    python3-pip \
+    git \
+    # Additional tools as needed
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /workspace
+
+# Add any additional configuration here
+
+CMD ["/bin/bash"]
+```
+
+The `dev_env` interface will support both implementation options, allowing teams to choose the approach that best fits their needs or to use a hybrid approach.
+
 ## 🧱 Data Structures
 
 ### Environment Configuration
@@ -36,13 +126,21 @@ The primary interface is the `dev_env` command-line tool that provides a compreh
 {
   "name": "string",             // Environment name (required)
   "description": "string",      // Human-readable description (optional)
-  "isolation_type": "string",   // "docker", "virtualenv", or "native" (required)
+  "isolation_type": "string",   // "docker", "nix", "virtualenv", or "native" (required)
   "extends": "string",          // Parent template name (optional)
   
   "docker": {                   // Docker-specific configuration (required if isolation_type is "docker")
     "image": "string",          // Docker image name (required)
     "ports": ["string"],        // Port mappings (optional)
     "volumes": ["string"],      // Volume mappings (optional)
+    "env": {                    // Environment variables (optional)
+      "key": "value"
+    },
+    "init": ["string"]          // Initialization commands (optional)
+  },
+  
+  "nix": {                      // Nix-specific configuration (required if isolation_type is "nix")
+    "flake_file": "string",     // Path to flake.nix file (required)
     "env": {                    // Environment variables (optional)
       "key": "value"
     },
@@ -88,7 +186,7 @@ The primary interface is the `dev_env` command-line tool that provides a compreh
   "id": "string",               // Environment ID (required)
   "name": "string",             // Environment name (required)
   "status": "string",           // "running", "stopped", or "error" (required)
-  "isolation_type": "string",   // "docker", "virtualenv", or "native" (required)
+  "isolation_type": "string",   // "docker", "nix", "virtualenv", or "native" (required)
   "created_at": "string",       // ISO 8601 timestamp (required)
   "last_used": "string",        // ISO 8601 timestamp (required)
   "resource_usage": {           // Resource usage statistics (optional)
@@ -97,6 +195,7 @@ The primary interface is the `dev_env` command-line tool that provides a compreh
     "disk": "string"            // Disk usage (e.g., "1.2 GB")
   },
   "container_id": "string",     // Container ID (if isolation_type is "docker")
+  "nix_profile": "string",      // Nix profile path (if isolation_type is "nix")
   "virtualenv_path": "string",  // Virtualenv path (if isolation_type is "virtualenv")
   "working_dir": "string",      // Working directory (if isolation_type is "native")
   "owner": "string",            // Environment owner (required)
@@ -111,20 +210,21 @@ The primary interface is the `dev_env` command-line tool that provides a compreh
 #### 1. Create Environment
 
 ```bash
-dev_env create <environment_name> <template_name> [resource_profile]
+dev_env create <environment_name> <template_name> [resource_profile] [--isolation-type=<type>]
 ```
 
 **Parameters:**
 - `environment_name`: Unique name for the environment
 - `template_name`: Name of the template to use
 - `resource_profile`: Optional resource profile to apply (default: "default")
+- `isolation-type`: Optional isolation type override (default: from template)
 
 **Returns:** Path to the environment directory
 
 **Example:**
 ```bash
-# Create a new development environment for a developer agent
-dev_env create dev-agent-123 developer-agent-environment high-resource
+# Create a new development environment for a developer agent using Nix
+dev_env create dev-agent-123 developer-agent-environment high-resource --isolation-type=nix
 # Returns: /path/to/.dev_env_state/dev-agent-123
 ```
 
@@ -224,18 +324,19 @@ dev_env restore dev-agent-123 pre-refactor
 #### 7. List Templates
 
 ```bash
-dev_env template list [category]
+dev_env template list [category] [--isolation-type=<type>]
 ```
 
 **Parameters:**
 - `category`: Optional filter by template category
+- `isolation-type`: Optional filter by isolation type
 
 **Returns:** JSON array of template information
 
 **Example:**
 ```bash
-# List all developer templates
-dev_env template list developer
+# List all developer templates using Nix
+dev_env template list developer --isolation-type=nix
 ```
 
 #### 8. Create Template
@@ -284,13 +385,16 @@ dev_env resources dev-agent-123
 agent_id="developer-agent-42"
 template="developer-agent-environment"
 resource_profile="standard"
+isolation_type="nix"  # Or "docker" based on preference
 
 # Create the environment
-env_dir=$(dev_env create $agent_id $template $resource_profile)
+env_dir=$(dev_env create $agent_id $template $resource_profile --isolation-type=$isolation_type)
 
 # Save environment information in agent configuration
 agent_config_file="/path/to/agents/$agent_id/config.json"
-jq --arg env_dir "$env_dir" '.environment_dir = $env_dir' "$agent_config_file" > tmp.json && mv tmp.json "$agent_config_file"
+jq --arg env_dir "$env_dir" --arg isolation "$isolation_type" \
+  '.environment_dir = $env_dir | .isolation_type = $isolation' \
+  "$agent_config_file" > tmp.json && mv tmp.json "$agent_config_file"
 ```
 
 ### GitHub Connector Integration
@@ -342,7 +446,7 @@ The Development Environment interface follows these error handling principles:
 | 2 | Environment not found | Verify environment name |
 | 3 | Template not found | Verify template name |
 | 4 | Resource limits exceeded | Adjust resource profile or clean up unused environments |
-| 5 | Docker not available | Install Docker or use alternative isolation type |
+| 5 | Container system not available | Install Docker/Nix or use alternative isolation type |
 | 6 | Command execution failed | Check command syntax and environment state |
 | 7 | Checkpoint not found | Verify checkpoint name |
 | 8 | Permission denied | Check user permissions |
@@ -354,14 +458,16 @@ The Development Environment interface follows these error handling principles:
 3. **Resource Limits**: Resource limits must be enforced to prevent DoS attacks
 4. **Multi-tenancy**: Environments from different tenants must be isolated
 5. **Cleanup**: Environments must be properly destroyed after use
+6. **Supply Chain Security**: When using Nix, verify hashes and signatures of inputs
 
 ## ⚠️ Limitations
 
-1. **Docker Dependency**: Full functionality requires Docker to be installed
+1. **Implementation Dependencies**: Full functionality requires either Docker or Nix to be installed
 2. **Resource Overhead**: Container-based environments have some resource overhead
 3. **Network Access**: Default network access may need to be restricted
 4. **Filesystem Access**: Filesystem access is limited to specified volumes
 5. **Performance**: Environment creation has some latency
+6. **Learning Curve**: Nix implementation has a steeper learning curve
 
 ## 🚀 Future Improvements
 
@@ -372,6 +478,8 @@ The Development Environment interface follows these error handling principles:
 5. **Template Registry**: Central repository of optimized environment templates
 6. **GUI Interface**: Visual interface for environment management
 7. **Cloud Integration**: Support for cloud-based development environments
+8. **Mixed Mode**: Support for hybrid Nix+Docker environments
+9. **direnv Integration**: Automatic environment activation with directory changes
 
 ---
 
@@ -380,3 +488,4 @@ The Development Environment interface follows these error handling principles:
 - [Interfaces](./README.md)
 - [Related Component](../components/development-environment.md)
 - [Related ADR](../decisions/004-development-environment-strategy.md)
+- [Component Responsibilities](../component-responsibilities.md)

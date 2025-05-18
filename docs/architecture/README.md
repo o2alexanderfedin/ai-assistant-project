@@ -23,6 +23,8 @@ This directory contains the comprehensive architecture documentation for our mul
 - `/tenant-cost-tracking.md` - Multi-tenant cost tracking approach
 - `/organizational-model.md` - Human organization model for the system
 - `/system-learning.md` - System self-improvement capabilities
+- `/terminology-standard.md` - Standardized terminology definitions
+- `/component-responsibilities.md` - Clear component responsibility matrix
 - `/components/` - Individual agent components and subsystems
 - `/interfaces/` - Communication protocols and APIs between components
 - `/diagrams/` - Visual representations of the architecture
@@ -37,6 +39,8 @@ This directory contains the comprehensive architecture documentation for our mul
 - [Tenant Cost Tracking](./tenant-cost-tracking.md) - Multi-tenant cost tracking approach
 - [Organizational Model](./organizational-model.md) - Human organization model for the system
 - [System Self-Improvement](./system-learning.md) - System learning capabilities
+- [Terminology Standard](./terminology-standard.md) - Standardized terminology
+- [Component Responsibilities](./component-responsibilities.md) - Component responsibility matrix
 - [Component Index](./components/README.md) - Details on individual components
 - [Interface Specifications](./interfaces/README.md) - Communication protocols
 - [Architecture Decisions](./decisions/README.md) - Key architectural decisions
@@ -51,10 +55,14 @@ This directory contains the comprehensive architecture documentation for our mul
    - [Tenant Cost Tracking](./tenant-cost-tracking.md) - Multi-tenant cost tracking approach
    - [System Self-Improvement](./system-learning.md) - System learning capabilities
    - [Requirements](./requirements.md) - System requirements
+   - [Terminology Standard](./terminology-standard.md) - Standardized terminology
+   - [Component Responsibilities](./component-responsibilities.md) - Component responsibility matrix
 
 2. **Core Components**:
    - [Orchestrator Agent](./components/orchestrator.md) - Central coordination component
    - [Analyzer Agent](./components/analyzer.md) - Task analysis and agent matching
+   - [Developer Agent](./components/developer-agent.md) - Code implementation and PR creation
+   - [Reviewer Agent](./components/reviewer-agent.md) - Code review and quality assurance
    - [Agent Factory](./components/agent-factory.md) - Creates specialized agents
 
 3. **Process Components**:
@@ -62,17 +70,26 @@ This directory contains the comprehensive architecture documentation for our mul
    - [Agent-Task Matching](./components/agent-task-matching.md) - Task matching algorithm
    - [TDD Workflow](./components/tdd-workflow.md) - Test-Driven Development process
    - [Agent Creation Process](./components/agent-creation-process.md) - Creating new agents
+   - [Agent Lifecycle](./components/agent-lifecycle.md) - Managing agent lifecycle
 
 4. **Interfaces**:
    - [MCP Protocol](./interfaces/mcp-protocol.md) - Agent communication protocol
    - [GitHub Interface](./interfaces/github-interface.md) - GitHub integration
+   - [Development Environment Interface](./interfaces/development-environment-interface.md) - Environment API
 
 5. **Architecture Decisions**:
    - [ADR-001: Agent Communication Protocol](./decisions/001-agent-communication-protocol.md)
    - [ADR-002: GitHub Integration Strategy](./decisions/002-github-integration-strategy.md)
+   - [ADR-003: Agent Task Workflow](./decisions/003-agent-task-workflow.md)
+   - [ADR-004: Development Environment Strategy](./decisions/004-development-environment-strategy.md)
+   - [ADR-005: Git Hooks Process Enforcement](./decisions/005-git-hooks-process-enforcement.md)
+   - [ADR-006: Simplified Agent Naming](./decisions/006-simplified-agent-naming.md)
 
 ## 🔄 Recent Updates
 
+- 2025-05-17: Created standardized terminology document to resolve naming inconsistencies
+- 2025-05-17: Added component responsibilities matrix to resolve contradictions
+- 2025-05-17: Updated README with links to new standardization documents
 - 2025-05-17: Mermaid diagrams implemented across all architecture documents
 - 2025-05-17: Updated diagram visualization with standardized styling
 - 2025-05-16: System self-improvement capabilities documented
