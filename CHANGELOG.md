@@ -41,11 +41,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Interactive, GitHub-compatible visualization of system architecture
 - Consistent styling with light background colors for all diagrams
 - Improved diagram organization with logical subgroups
+- Comprehensive Pull Request Policy section in orchestrator documentation
+- Detailed clarification of Reviewer's authority to decide branch disposition
+- Decision framework for determining whether to create PR or delete branch
 
 ### Changed
 - Converted all ASCII diagrams to Mermaid syntax
 - Updated README with Mermaid diagram conventions
 - Standardized diagram styling across the codebase
+- Updated sequence diagrams to show Reviewer's branch disposition decision
+- Clarified PR creation conditions based on work quality and value
+- Added examples of when PRs are required vs. when branches should be deleted
 
 ## [0.1.0] - 2025-05-17
 
