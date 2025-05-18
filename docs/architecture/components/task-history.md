@@ -969,4 +969,4 @@ function manage_data_lifecycle() {
 <!-- 🧭 NAVIGATION -->
 **Navigation**: [Home](../README.md) | [Components](./README.md) | [Agent State Store](./agent-state-store.md) | [Knowledge Base](./knowledge-base.md)
 
-*Last updated: 2024-05-16*
+*Last updated: 2025-05-16*

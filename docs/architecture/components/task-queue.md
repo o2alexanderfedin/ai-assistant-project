@@ -221,4 +221,4 @@ These metrics are used for continuous improvement of the queuing and dispatching
 <!-- 🧭 NAVIGATION -->
 **Navigation**: [Home](../README.md) | [Components](./README.md) | [Orchestrator](./orchestrator.md) | [Agent Registry](./agent-registry.md)
 
-*Last updated: 2024-05-16*
+*Last updated: 2025-05-16*

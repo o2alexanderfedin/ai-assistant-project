@@ -98,4 +98,4 @@ Success will be measured by these criteria:
 <!-- 🧭 NAVIGATION -->
 **Navigation**: [Home](../README.md) | [Decisions Index](./README.md) | [Next Decision](./002-github-integration-strategy.md)
 
-*Last updated: 2024-05-16*
+*Last updated: 2025-05-16*

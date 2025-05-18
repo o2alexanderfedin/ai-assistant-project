@@ -165,4 +165,4 @@ This architecture decision will be validated through:
 <!-- 🧭 NAVIGATION -->
 **Navigation**: [Home](../README.md) | [Decision Index](./README.md) | [Previous: ADR-002](./002-github-integration-strategy.md) | [Next: ADR-004](./)
 
-*Last updated: 2024-05-16*
+*Last updated: 2025-05-16*

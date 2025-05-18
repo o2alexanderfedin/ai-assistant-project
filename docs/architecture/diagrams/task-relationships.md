@@ -205,4 +205,4 @@ add_documentation_references() {
 <!-- 🧭 NAVIGATION -->
 **Navigation**: [Home](../README.md) | [System Overview](../system-overview.md) | [Diagrams Index](./README.md)
 
-*Last updated: 2024-05-16*
+*Last updated: 2025-05-16*

@@ -98,4 +98,4 @@ Success will be measured by these criteria:
 <!-- 🧭 NAVIGATION -->
 **Navigation**: [Home](../README.md) | [Decisions Index](./README.md) | [Previous Decision](./001-agent-communication-protocol.md) | [Next Decision](./003-tdd-workflow-implementation.md)
 
-*Last updated: 2024-05-16*
+*Last updated: 2025-05-16*

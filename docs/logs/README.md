@@ -19,13 +19,16 @@ The logs are organized by date in the format `YYYY-MM-DD` with topic-specific fi
 
 ```
 /docs/logs/
-  ├── 2024-05-16/
+  ├── 2025-05-16/
   │   ├── architecture-components.md
   │   ├── initial-discussion.md
-  │   └── requirements-definition.md
-  ├── 2025-05-16/
+  │   ├── requirements-definition.md
   │   ├── development-environment-implementation.md
-  │   └── system-diagrams-creation.md
+  │   ├── system-diagrams-creation.md
+  │   └── ... (more log files)
+  ├── 2025-05-17/
+  │   ├── mermaid-diagrams-conversion.md
+  │   └── ... (more log files)
   └── README.md
 ```
 
@@ -44,14 +47,22 @@ Each log file follows this structure:
 
 ## 📚 Available Logs
 
-### 2024-05-16
-- [Initial Discussion](./2024-05-16/initial-discussion.md) - Initial project requirements and objectives
-- [Requirements Definition](./2024-05-16/requirements-definition.md) - Detailed requirements specification
-- [Architecture Components](./2024-05-16/architecture-components.md) - Initial architecture components design
-
 ### 2025-05-16
+- [Initial Discussion](./2025-05-16/initial-discussion.md) - Initial project requirements and objectives
+- [Requirements Definition](./2025-05-16/requirements-definition.md) - Detailed requirements specification
+- [Architecture Components](./2025-05-16/architecture-components.md) - Initial architecture components design
 - [Development Environment Implementation](./2025-05-16/development-environment-implementation.md) - Documentation and implementation of the Development Environment component
 - [System Diagrams Creation](./2025-05-16/system-diagrams-creation.md) - Creation of system architecture diagrams
+- [Agent Lifecycle](./2025-05-16/agent-lifecycle.md) - Documentation of agent lifecycle processes
+- [Implementation Approach](./2025-05-16/implementation-approach.md) - Defined implementation strategy and principles
+- [Organizational Model](./2025-05-16/organizational-model.md) - Team organization and collaboration model
+- [Process Documentation](./2025-05-16/process-documentation.md) - Development and documentation processes
+- [Task Relationships](./2025-05-16/task-relationships.md) - Task dependencies and relationships
+- [Tenant Cost Tracking](./2025-05-16/tenant-cost-tracking.md) - Cost tracking mechanisms for multi-tenant deployment
+
+### 2025-05-17
+- [Mermaid Diagrams Conversion](./2025-05-17/mermaid-diagrams-conversion.md) - Conversion of ASCII diagrams to Mermaid syntax
+- [System Diagrams Update](./2025-05-17/system-diagrams-update.md) - Updates to system architecture diagrams
 
 ## 🔄 Contributing Guidelines
 
