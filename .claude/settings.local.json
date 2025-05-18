@@ -17,7 +17,16 @@
       "Bash(git flow release start:*)",
       "Bash(git flow release finish:*)",
       "Bash(git tag:*)",
-      "Bash(grep:*)"
+      "Bash(grep:*)",
+      "Bash(find:*)",
+      "Bash(rm:*)",
+      "Bash(cat:*)",
+      "Bash(git pull:*)",
+      "Bash(git flow config:*)",
+      "Bash(-print)",
+      "Bash(cp:*)",
+      "Bash(mv:*)",
+      "Bash(sed:*)"
     ],
     "deny": []
   }

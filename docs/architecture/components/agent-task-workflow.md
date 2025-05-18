@@ -14,7 +14,7 @@
 
 ## 📋 Overview
 
-This document defines the standardized workflow that all agents must follow when handling tasks in the multi-agent system. The workflow ensures consistent task processing, proper documentation, effective decomposition, and appropriate yielding back to the orchestrator. Following this workflow is mandatory for all agents regardless of their specialization.
+This document defines the standardized workflow that all agents must follow when handling tasks in the multi-agent system. The workflow ensures consistent task processing, proper documentation, effective decomposition, and appropriate yielding back to the Orchestrator Agent. Following this workflow is mandatory for all agents regardless of their specialization.
 
 ## 📊 Task Processing Workflow
 
@@ -33,7 +33,7 @@ flowchart TD
     G --> I[Document work completed]
     H --> J[Update task status]
     I --> J
-    J --> K[Yield to orchestrator]
+    J --> K[Yield to Orchestrator]
     B --> L{Questions needed?}
     L -->|Yes| M[Create question subtask]
     M --> N[Document questions]
@@ -56,7 +56,7 @@ flowchart TD
 
 7. **Status Update**: The agent updates the task status to reflect the current state.
 
-8. **Yield to Orchestrator**: The agent yields control back to the orchestrator.
+8. **Yield to Orchestrator**: The agent yields control back to the Orchestrator Agent.
 
 ## 🧩 Task Decomposition
 
@@ -212,7 +212,7 @@ When an agent has questions that must be answered before proceeding, it should:
 
 4. **Update Status**: Mark the original task as blocked.
 
-5. **Yield Control**: Yield back to the orchestrator.
+5. **Yield Control**: Yield back to the Orchestrator Agent.
 
 ```bash
 # Example of question handling function
@@ -267,15 +267,15 @@ $questions"
 
 ## 🔄 Yield Process
 
-The process for yielding back to the orchestrator involves:
+The process for yielding back to the Orchestrator Agent involves:
 
 1. **Status Confirmation**: Ensure the task status is properly updated before yielding.
 
-2. **Notification**: Notify the orchestrator that the agent has completed its current work.
+2. **Notification**: Notify the Orchestrator Agent that the agent has completed its current work.
 
 3. **State Cleanup**: Ensure any temporary resources are cleaned up.
 
-4. **Availability Update**: Update the agent's status in the registry to available.
+4. **Availability Update**: Update the agent's status in the Agent Registry to available.
 
 ```bash
 # Example of yield function
@@ -329,8 +329,8 @@ function handle_task() {
   # Mark task as in progress
   gh issue edit "$task_id" --add-label "status:in_progress"
   
-  # Update agent status
-  ./scripts/agent_registry.sh update "$agent_name" "busy" 100
+  # Update agent status in registry
+  ./scripts/agent_registry.sh update "$agent_name" "busy" "$task_id"
   
   # Analyze task
   task_analysis=$(analyze_task "$task_id")
@@ -387,6 +387,6 @@ function handle_task() {
 ---
 
 <!-- 🧭 NAVIGATION -->
-**Navigation**: [Home](../README.md) | [Components](./README.md) | [Task Execution Process](./task-execution-process.md) | [Orchestrator](./orchestrator.md)
+**Navigation**: [Home](../README.md) | [Components](./README.md) | [Task Execution Process](./task-execution-process.md) | [Orchestrator](./orchestrator.md) | [Component Responsibilities](../component-responsibilities.md)
 
-*Last updated: 2025-05-16*
+*Last updated: 2025-05-17*
