@@ -103,8 +103,52 @@
       "Bash(./cleanup.sh:*)",
       "Bash(python:*)",
       "Bash(./scripts/utilities/get-project-items.sh:*)",
-      "Bash(./scripts/utilities/identify-project-duplicates.sh:*)"
+      "Bash(./scripts/utilities/identify-project-duplicates.sh:*)",
+      "Bash(git submodule add:*)",
+      "Bash(docker pull:*)",
+      "Bash(docker compose:*)",
+      "Bash(pip install:*)",
+      "WebFetch(domain:github.com)",
+      "Bash(docker logs:*)",
+      "Bash(docker-compose down:*)",
+      "Bash(docker-compose up:*)",
+      "Bash(docker network:*)",
+      "Bash(docker port:*)",
+      "Bash(pipx install:*)",
+      "Bash(/Users/alexanderfedin/Projects/ai-assistant-project/start-chroma-mcp.sh:*)",
+      "Bash(mcp:*)",
+      "Bash(brew install:*)",
+      "Bash(claude mcp:*)",
+      "Bash(curl:*)",
+      "Bash(uvx chroma-mcp:*)",
+      "Bash(docker build:*)",
+      "Bash(claude --mcp chroma-docker \"What databases do you have access to?\")",
+      "Bash(docker rm:*)",
+      "Bash(docker system:*)",
+      "Bash(/Users/alexanderfedin/Projects/ai-assistant-project/rebuild-chroma-mcp.sh)",
+      "Bash(docker stats:*)",
+      "Bash(pip3 list:*)",
+      "Bash(pipdeptree:*)",
+      "Bash(/Users/alexanderfedin/Projects/ai-assistant-project/test-chroma.sh)",
+      "Bash(/Users/alexanderfedin/Projects/ai-assistant-project/start-chroma.sh)",
+      "Bash(docker:*)"
     ],
     "deny": []
+  },
+  "mcpServers": {
+    "chroma-local": {
+      "command": "python3",
+      "args": [
+        ".claude/mcp-servers/simple-rag/chroma-mcp-python/local_chroma_mcp.py",
+        "--client-type",
+        "http",
+        "--host",
+        "localhost",
+        "--port",
+        "8100",
+        "--ssl",
+        "false"
+      ]
+    }
   }
 }
