@@ -38,6 +38,7 @@ This directory contains detailed documentation for each component in the multi-a
 
 - [📚 Knowledge Base](./knowledge-base.md) - Stores shared knowledge and best practices
 - [🔍 Question-Based Embedding](./question-based-embedding.md) - Advanced semantic search using question transformation
+- [🧠 Layered Memory System](./layered-memory-system.md) - Chain of responsibility pattern for text storage and retrieval
 - [🔎 RAG Implementation](../interfaces/mcp/chroma-mcp-server.md) - Retrieval Augmented Generation for document search
 
 ## 🛠️ Development Agent Components
