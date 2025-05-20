@@ -5,6 +5,9 @@
 - [Installation](#installation)
 - [Architecture](#architecture)
 - [Components](#components)
+- [Usage Modes](#usage-modes)
+  - [Content Storage Mode](#content-storage-mode)
+  - [File Reference Mode](#file-reference-mode)
 - [Usage Examples](#usage-examples)
 - [Integration with Chroma](#integration-with-chroma)
 - [Performance Considerations](#performance-considerations)
@@ -137,84 +140,207 @@ questions = transformer.transform_query(
 #  'vector database performance']
 ```
 
-### ChromaQBEClient
+### FileReference
 
-The `ChromaQBEClient` provides integration with Chroma vector database:
+The `FileReference` class represents a reference to a file with metadata:
+
+```python
+from embedding.file_reference import FileReference
+
+# Create a file reference
+file_ref = FileReference(
+    file_path="/path/to/document.txt",
+    chunk_index=2,  # Optional chunk information
+    chunk_offset=1500,
+    chunk_length=1000
+)
+
+# Get content from the reference
+content = file_ref.get_content()
+
+# Convert to/from dictionary
+ref_dict = file_ref.to_dict()
+restored_ref = FileReference.from_dict(ref_dict)
+```
+
+## Usage Modes
+
+The implementation supports two distinct modes for working with documents:
+
+### Content Storage Mode
+
+In content storage mode, document content is processed and stored directly in the vector database. This is the default mode.
+
+**Advantages:**
+- Fast retrieval of relevant content without additional I/O
+- Self-contained search results with content snippets
+- No dependencies on external file system for retrieving results
+
+**Use cases:**
+- Short to medium-sized documents
+- Content that changes infrequently
+- When file paths might change or be unavailable
 
 ```python
 from embedding.chroma_integration import ChromaQBEClient
 
-# Initialize client
+# Initialize client for content storage mode
 client = ChromaQBEClient(
     chroma_host="localhost",
-    chroma_port=8100,
-    embedding_model="all-MiniLM-L6-v2"
+    chroma_port=8100
 )
 
-# Process a document into questions and store in Chroma
-collection_id, questions = client.process_document(
-    collection_name="documentation",
+# Process and store document content
+client.process_document(
+    collection_name="content_collection",
     document="Question-based embeddings improve search by...",
     document_id="doc_001",
-    document_metadata={"source": "architecture_docs"},
-    questions_per_chunk=3
+    document_metadata={"source": "architecture_docs"}
 )
 
-# Search using question transformation
+# Search returns content directly
 results = client.search(
-    collection_name="documentation",
-    query="embedding performance",
-    transform_query=True,
-    n_results=5
+    collection_name="content_collection",
+    query="embedding performance"
 )
+```
+
+### File Reference Mode
+
+In file reference mode, document content is processed but only file references are stored in the vector database. This mode is more storage-efficient and keeps the database size small even for large document collections.
+
+**Advantages:**
+- Much lower storage requirements
+- Always returns the latest file content
+- Better for large document collections
+- Clear separation between content and metadata
+
+**Use cases:**
+- Large document collections
+- Content that changes frequently
+- When file organization and paths are stable
+- When you need to search but keep content separate
+
+```python
+from embedding.chroma_file_client import ChromaFileReferenceClient
+
+# Initialize client for file reference mode
+client = ChromaFileReferenceClient(
+    chroma_host="localhost",
+    chroma_port=8100
+)
+
+# Process files and store references
+client.process_file(
+    collection_name="file_collection",
+    file_path="/path/to/document.txt"
+)
+
+# Search returns file references
+results = client.search(
+    collection_name="file_collection",
+    query="embedding performance",
+    return_contents=True  # Optional: read and return contents
+)
+
+# Access file paths from results
+for result in results["results"]:
+    file_path = result["file_reference"]["file_path"]
+    print(f"Found in file: {file_path}")
+    
+    # Content only available if return_contents=True was specified
+    if "content" in result:
+        print(f"Content: {result['content']}")
 ```
 
 ## Usage Examples
 
-### Basic Example
+### Content Storage Mode Example
 
 ```python
 from embedding import EmbeddingGenerator, QuestionGenerator, QueryTransformer
+from embedding.chroma_integration import ChromaQBEClient
 
 # Initialize components
-embedding_gen = EmbeddingGenerator()
-question_gen = QuestionGenerator()
-query_transformer = QueryTransformer()
+client = ChromaQBEClient()
 
 # Process content
 content = "Question-based embedding is a technique that represents content as questions rather than raw text."
-questions = question_gen.generate_questions(content, question_count=2)
+client.process_document(collection_name="docs", document=content)
 
-# Generate embeddings
-question_embeddings = embedding_gen.batch_generate_embeddings([q.question_text for q in questions])
-
-# Process a user query
-user_query = "semantic search improvements"
-transformed_queries = query_transformer.transform_query(user_query)
-query_embedding = embedding_gen.generate_embedding(transformed_queries[0])
-
-# Calculate similarity
-from embedding.transformer import EmbeddingGenerator
-similarity = embedding_gen.similarity(query_embedding, question_embeddings[0])
+# Search
+results = client.search(collection_name="docs", query="semantic search improvements")
 ```
 
-### Chroma Integration Example
+### File Reference Mode Example
 
-See the full example script in [example.py](./example.py).
+```python
+from embedding.chroma_file_client import ChromaFileReferenceClient
+from embedding.file_reference import FileProcessor
+
+# Initialize client
+client = ChromaFileReferenceClient()
+
+# Process a single file
+client.process_file(collection_name="files", file_path="/path/to/document.txt")
+
+# Process a directory of files
+client.process_directory(
+    collection_name="files",
+    directory_path="/path/to/documents",
+    file_patterns=["*.txt", "*.md"],
+    recursive=True
+)
+
+# Search for files
+results = client.search(
+    collection_name="files",
+    query="semantic search",
+    return_contents=False  # Set to True to include file contents
+)
+
+# Access results
+for result in results["results"]:
+    print(f"File: {result['file_reference']['file_path']}")
+    print(f"Question: {result['question']}")
+    print(f"Relevance: {result['relevance']}")
+```
+
+### Command Line Examples
+
+The package includes two example scripts:
+
+#### Content Storage Example
 
 ```bash
-# Process a document and store questions in Chroma
-python -m embedding.example --document your_document.txt --collection doc_questions
+# Process a document and store content in Chroma
+python -m src.embedding.example --document your_document.txt --collection content_collection
 
 # Search for content
-python -m embedding.example --query "your search query" --collection doc_questions
+python -m src.embedding.example --query "your search query" --collection content_collection
+```
+
+#### File Reference Example
+
+```bash
+# Process a file and store references in Chroma
+python -m src.embedding.file_example --file your_document.txt --collection file_collection
+
+# Process a directory of files
+python -m src.embedding.file_example --directory /path/to/docs --patterns "*.txt,*.md" --recursive --collection file_collection
+
+# Search for files
+python -m src.embedding.file_example --query "your search query" --collection file_collection
+
+# Search and include file contents
+python -m src.embedding.file_example --query "your search query" --collection file_collection --return-contents
 ```
 
 ## Integration with Chroma
 
 This implementation integrates with Chroma vector database in two ways:
 
-1. **Direct API Integration**: The `ChromaQBEClient` class communicates with Chroma's HTTP API.
+1. **Direct API Integration**: The client classes communicate with Chroma's HTTP API.
 
 2. **MCP Protocol**: For Claude integration, the code works with the Chroma MCP server.
 
@@ -250,9 +376,9 @@ claude mcp add chroma uvx -- chroma-mcp --client-type http --host localhost --po
   - Cost considerations for large document collections
   - Rate limit considerations
 
-- **Caching**: The implementation includes basic caching for:
-  - Transformed queries
-  - Common questions
+- **Storage Mode Considerations**:
+  - Content Storage: Higher storage requirements but faster retrieval
+  - File Reference: Lower storage requirements but requires I/O for content retrieval
 
 ## Development
 
@@ -277,5 +403,6 @@ To add support for new embedding models:
 - [Architecture Documentation](../../docs/architecture/README.md)
 - [QBE Architecture](../../docs/architecture/components/question-based-embedding.md)
 - [Discussion](../../docs/logs/2025-05-19/question-based-embedding-discussion.md)
+- [File Reference Requirements](../../docs/logs/2025-05-20/qbe-file-reference-requirements.md)
 
 Last updated: May 20, 2025
