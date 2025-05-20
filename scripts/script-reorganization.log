@@ -1,0 +1,120 @@
+# Script Reorganization Log
+Date: Mon May 19 16:59:03 PDT 2025
+
+## Migration Scripts
+total 176
+drwxr-xr-x@ 10 alexanderfedin  staff    320 May 19 16:59 .
+drwxr-xr-x@ 13 alexanderfedin  staff    416 May 19 16:59 ..
+-rwxr-xr-x@  1 alexanderfedin  staff   1969 May 18 23:56 add-issues.sh
+-rwxr-xr-x@  1 alexanderfedin  staff    705 May 19 00:14 add-missing-stories.sh
+-rw-r--r--@  1 alexanderfedin  staff   7201 May 19 01:55 batch-migration.py
+-rw-r--r--@  1 alexanderfedin  staff  14948 May 19 01:50 complete-migration.py
+-rwxr-xr-x@  1 alexanderfedin  staff  12413 May 19 01:42 comprehensive-migration.py
+-rw-r--r--@  1 alexanderfedin  staff   6264 May 19 01:57 migrate.py
+-rw-r--r--@  1 alexanderfedin  staff    982 May 19 16:59 README.md
+-rwxr-xr-x@  1 alexanderfedin  staff  25085 May 19 03:31 simple-migration.py
+
+## Parent-Child Scripts
+total 64
+drwxr-xr-x@  9 alexanderfedin  staff   288 May 19 16:59 .
+drwxr-xr-x@ 13 alexanderfedin  staff   416 May 19 16:59 ..
+-rwxr-xr-x@  1 alexanderfedin  staff  2127 May 18 23:38 add-sub-issue.sh
+-rwxr-xr-x@  1 alexanderfedin  staff  2864 May 19 16:38 batch-set-parents.sh
+-rwxr-xr-x@  1 alexanderfedin  staff  2916 May 18 23:40 create-sub-issue.sh
+-rw-r--r--@  1 alexanderfedin  staff  1277 May 19 16:59 README.md
+-rwxr-xr-x@  1 alexanderfedin  staff  3100 May 19 16:40 set-missing-parents.sh
+-rwxr-xr-x@  1 alexanderfedin  staff  2131 May 19 16:38 set-parent.sh
+-rwxr-xr-x@  1 alexanderfedin  staff  4103 May 18 23:39 update-all-sub-issues.sh
+
+## Field Scripts
+total 88
+drwxr-xr-x@  7 alexanderfedin  staff    224 May 19 16:59 .
+drwxr-xr-x@ 13 alexanderfedin  staff    416 May 19 16:59 ..
+-rw-r--r--@  1 alexanderfedin  staff    937 May 19 16:59 README.md
+-rwxr-xr-x@  1 alexanderfedin  staff   6166 May 19 14:00 set-story-points.py
+-rwxr-xr-x@  1 alexanderfedin  staff   5088 May 19 00:07 set-types.sh
+-rwxr-xr-x@  1 alexanderfedin  staff   6987 May 19 16:17 update-missing-components.py
+-rwxr-xr-x@  1 alexanderfedin  staff  14046 May 19 14:02 update-parent-and-points.py
+
+## Utility Scripts
+total 104
+drwxr-xr-x@  8 alexanderfedin  staff    256 May 19 16:59 .
+drwxr-xr-x@ 13 alexanderfedin  staff    416 May 19 16:59 ..
+-rwxr-xr-x@  1 alexanderfedin  staff   6064 May 19 16:23 check-missing-parents.py
+-rwxr-xr-x@  1 alexanderfedin  staff  15568 May 19 16:59 cleanup.sh
+-rwxr-xr-x@  1 alexanderfedin  staff   7583 May 19 09:40 find-duplicate-issues.py
+-rw-r--r--@  1 alexanderfedin  staff   7193 May 19 09:40 find-missing-issues.py
+-rwxr-xr-x@  1 alexanderfedin  staff   5897 May 19 14:01 list-project-items.py
+-rw-r--r--@  1 alexanderfedin  staff    814 May 19 16:59 README.md
+
+## Deprecated Scripts
+total 864
+drwxr-xr-x@ 69 alexanderfedin  staff   2208 May 19 16:59 .
+drwxr-xr-x@ 13 alexanderfedin  staff    416 May 19 16:59 ..
+-rwxr-xr-x@  1 alexanderfedin  staff    373 May 18 01:17 add-epic.sh
+-rwxr-xr-x@  1 alexanderfedin  staff   1847 May 18 12:11 add-issue-relation.sh
+-rwxr-xr-x@  1 alexanderfedin  staff   4305 May 18 12:26 add-issue-with-parent.sh
+-rwxr-xr-x@  1 alexanderfedin  staff   2204 May 18 12:14 add-sub-issue.sh
+-rwxr-xr-x@  1 alexanderfedin  staff   3453 May 18 23:49 assign-missing-parents.sh
+-rwxr-xr-x@  1 alexanderfedin  staff   2573 May 19 00:41 batch-set-parent-relationships.sh
+-rwxr-xr-x@  1 alexanderfedin  staff   1624 May 19 09:54 check_issue_8.py
+-rwxr-xr-x@  1 alexanderfedin  staff   1135 May 18 23:44 cleanup-test-scripts.sh
+-rwxr-xr-x@  1 alexanderfedin  staff   4612 May 19 09:59 compare_duplicate_content.py
+-rwxr-xr-x@  1 alexanderfedin  staff   8311 May 19 00:25 comprehensive-issue-migration.sh
+-rwxr-xr-x@  1 alexanderfedin  staff  20276 May 18 01:54 create-and-set-fields.sh
+-rwxr-xr-x@  1 alexanderfedin  staff   4879 May 18 01:56 create-component-field.sh
+-rwxr-xr-x@  1 alexanderfedin  staff   3220 May 18 12:17 create-custom-parent-field.sh
+-rwxr-xr-x@  1 alexanderfedin  staff   4414 May 18 01:55 create-epic-field.sh
+-rwxr-xr-x@  1 alexanderfedin  staff    377 May 18 01:16 create-fields.sh
+-rwxr-xr-x@  1 alexanderfedin  staff    623 May 18 01:13 create-github-project.sh
+-rwxr-xr-x@  1 alexanderfedin  staff   3576 May 18 12:33 create-issue-with-parent-link.sh
+-rwxr-xr-x@  1 alexanderfedin  staff   8488 May 18 01:40 create-mapping-guide.sh
+-rwxr-xr-x@  1 alexanderfedin  staff   2169 May 18 12:18 create-parent-field-rest.sh
+-rwxr-xr-x@  1 alexanderfedin  staff   5917 May 18 02:06 create-parent-issue-field.sh
+-rwxr-xr-x@  1 alexanderfedin  staff   1330 May 18 23:44 delete-test-issues.sh
+-rwxr-xr-x@  1 alexanderfedin  staff    877 May 18 12:29 direct-update.sh
+-rwxr-xr-x@  1 alexanderfedin  staff  10604 May 19 10:11 find_missing_parent_issues.py
+-rwxr-xr-x@  1 alexanderfedin  staff   7711 May 18 01:13 github-project-migration-no-check.sh
+-rwxr-xr-x@  1 alexanderfedin  staff   8029 May 18 01:00 github-project-migration.sh
+-rwxr-xr-x@  1 alexanderfedin  staff   7927 May 18 01:16 github-project-setup.sh
+-rwxr-xr-x@  1 alexanderfedin  staff   2909 May 19 00:07 manual-set-types.sh
+-rwxr-xr-x@  1 alexanderfedin  staff   3244 May 18 01:38 map-issue-fields.sh
+-rwxr-xr-x@  1 alexanderfedin  staff   1784 May 18 01:37 map-issue-types.sh
+-rwxr-xr-x@  1 alexanderfedin  staff   7275 May 19 09:42 migrate_duplicate_issues.py
+-rwxr-xr-x@  1 alexanderfedin  staff  14200 May 19 10:14 migrate_missing_fields.py
+-rwxr-xr-x@  1 alexanderfedin  staff   2616 May 18 01:33 migrate-all-comments.sh
+-rwxr-xr-x@  1 alexanderfedin  staff   2750 May 18 01:27 migrate-comments-to-notes.sh
+-rwxr-xr-x@  1 alexanderfedin  staff   1967 May 18 01:18 migrate-issues.sh
+-rwxr-xr-x@  1 alexanderfedin  staff   5646 May 19 00:29 part1-add-issues-set-types.sh
+-rwxr-xr-x@  1 alexanderfedin  staff   2616 May 19 00:30 part2-set-parent-relationships.sh
+-rwxr-xr-x@  1 alexanderfedin  staff  11420 May 19 01:45 process_issue_batch.py
+-rwxr-xr-x@  1 alexanderfedin  staff   5688 May 19 00:33 process-issue-range.sh
+-rwxr-xr-x@  1 alexanderfedin  staff   2294 May 18 01:29 process-specific-comments.sh
+-rwxr-xr-x@  1 alexanderfedin  staff  12445 May 18 02:30 python-set-parent-issues.py
+-rwxr-xr-x@  1 alexanderfedin  staff    129 May 18 01:06 quick-test-project-access.sh
+-rw-r--r--@  1 alexanderfedin  staff    492 May 19 16:59 README.md
+-rw-r--r--@  1 alexanderfedin  staff    750 May 19 01:46 run_all_batches.sh
+-rwxr-xr-x@  1 alexanderfedin  staff   4457 May 18 12:17 set-custom-parent.sh
+-rwxr-xr-x@  1 alexanderfedin  staff   1982 May 19 00:40 set-direct-parent.sh
+-rwxr-xr-x@  1 alexanderfedin  staff   4382 May 18 01:52 set-epic-links.sh
+-rwxr-xr-x@  1 alexanderfedin  staff   4716 May 19 00:06 set-issue-types.sh
+-rwxr-xr-x@  1 alexanderfedin  staff   6787 May 18 12:04 set-parent-issue.sh
+-rwxr-xr-x@  1 alexanderfedin  staff   3365 May 18 12:32 set-parent-link-fixed.sh
+-rwxr-xr-x@  1 alexanderfedin  staff   3658 May 18 12:40 set-parent-link-friendly.sh
+-rwxr-xr-x@  1 alexanderfedin  staff   3442 May 18 12:40 set-parent-link-html.sh
+-rwxr-xr-x@  1 alexanderfedin  staff   4047 May 18 12:32 set-parent-link.sh
+-rwxr-xr-x@  1 alexanderfedin  staff   1992 May 18 02:22 set-parent-manual.sh
+-rwxr-xr-x@  1 alexanderfedin  staff   2404 May 18 02:42 set-parent-on-add.sh
+-rwxr-xr-x@  1 alexanderfedin  staff   2427 May 19 00:40 set-single-parent.sh
+-rwxr-xr-x@  1 alexanderfedin  staff   2076 May 18 01:46 set-type-field.sh
+-rwxr-xr-x@  1 alexanderfedin  staff   4144 May 19 00:04 set-types-for-all-issues.sh
+-rwxr-xr-x@  1 alexanderfedin  staff   2983 May 19 00:15 set-types-for-new-items.sh
+-rwxr-xr-x@  1 alexanderfedin  staff   4537 May 19 00:08 set-types-with-node-id.sh
+-rwxr-xr-x@  1 alexanderfedin  staff    522 May 18 12:30 simple-update.sh
+-rwxr-xr-x@  1 alexanderfedin  staff    814 May 18 01:00 test-project-access.sh
+-rwxr-xr-x@  1 alexanderfedin  staff   5245 May 18 12:35 update-all-parent-links.sh
+-rwxr-xr-x@  1 alexanderfedin  staff   7620 May 18 02:02 update-component-values.sh
+-rwxr-xr-x@  1 alexanderfedin  staff   7672 May 18 02:20 update-parent-issue-values.sh
+-rwxr-xr-x@  1 alexanderfedin  staff   6646 May 18 12:26 update-parent-links.sh
+-rwxr-xr-x@  1 alexanderfedin  staff   8406 May 18 01:48 update-project-fields.sh
+-rwxr-xr-x@  1 alexanderfedin  staff    719 May 18 12:31 update-with-gh.sh
