@@ -1,0 +1,3 @@
+[submodule ".claude/mcp-servers/simple-rag/memory-mcp"]
+	path = .claude/mcp-servers/simple-rag/memory-mcp
+	url = https://github.com/modelcontextprotocol/servers
