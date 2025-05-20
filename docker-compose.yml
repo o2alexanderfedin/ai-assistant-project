@@ -1,0 +1,11 @@
+services:
+  chroma:
+    image: chromadb/chroma
+    container_name: chroma
+    restart: always
+    volumes:
+      - ${HOME}/chromadb_data:/chroma/chroma
+    ports:
+      - "8100:8000"
+    environment:
+      - ALLOW_RESET=true
