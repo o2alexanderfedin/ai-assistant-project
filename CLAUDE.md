@@ -5,6 +5,8 @@
 - Architecture documents should be maintained in `./docs/architecture/` with proper subdirectories
 - This file (CLAUDE.md) will contain process improvements and rules
 - Reusable solutions and patterns are stored in `.claude/rules/` for reference
+- ALWAYS follow official documentation exactly as written before trying alternatives
+- Check for README.md files first when working with repositories, as they contain critical information
 
 ## Documentation Structure
 - `/docs/architecture/components/` - Individual agent components and subsystems
