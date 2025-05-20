@@ -5,6 +5,7 @@
   - [📋 Overview](#-overview)
   - [🤖 Core Agent Components](#-core-agent-components)
   - [🔄 Process Components](#-process-components)
+  - [🧠 Knowledge & Search Components](#-knowledge--search-components)
   - [🛠️ Development Agent Components](#️-development-agent-components)
   - [🗃️ Persistence Components](#️-persistence-components)
   - [🔌 External Integration Components](#-external-integration-components)
@@ -33,6 +34,12 @@ This directory contains detailed documentation for each component in the multi-a
 - [📒 Agent Registry](./agent-registry.md) - Maintains information about all active agents and their capabilities
 - [🔄 Communication Hub](./communication-hub.md) - Routes messages between agents
 
+## 🧠 Knowledge & Search Components
+
+- [📚 Knowledge Base](./knowledge-base.md) - Stores shared knowledge and best practices
+- [🔍 Question-Based Embedding](./question-based-embedding.md) - Advanced semantic search using question transformation
+- [🔎 RAG Implementation](../interfaces/mcp/chroma-mcp-server.md) - Retrieval Augmented Generation for document search
+
 ## 🛠️ Development Agent Components
 
 - [👨‍💻 Implementer Agent](./implementer-agent.md) - Implements solutions against acceptance criteria
@@ -45,7 +52,6 @@ This directory contains detailed documentation for each component in the multi-a
 
 - [💾 Agent State Store](./agent-state-store.md) - Persists agent state and configuration
 - [📜 Task History](./task-history.md) - Maintains record of completed tasks and outcomes
-- [📚 Knowledge Base](./knowledge-base.md) - Stores shared knowledge and best practices
 - [📊 Performance Metrics](./performance-metrics.md) - Collects and analyzes system performance data
 
 ## 🔌 External Integration Components
@@ -63,4 +69,4 @@ This directory contains detailed documentation for each component in the multi-a
 - [Decisions](../decisions/README.md)
 - [Diagrams](../diagrams/README.md)
 
-*Last updated: 2025-05-16*
+*Last updated: 2025-05-20*
