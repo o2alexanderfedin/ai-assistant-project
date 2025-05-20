@@ -1,0 +1,780 @@
+{
+  "1": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgagkBY",
+    "title": "\ud83d\udd04 Core Agent System Implementation",
+    "fields": {
+      "Title": "\ud83d\udd04 Core Agent System Implementation",
+      "Type": "Epic",
+      "Priority": "High",
+      "Component": "Core Agents"
+    }
+  },
+  "7": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgagkB4",
+    "title": "\ud83d\udd0d System Testing and Quality Assurance",
+    "fields": {
+      "Title": "\ud83d\udd0d System Testing and Quality Assurance",
+      "Type": "Epic",
+      "Priority": "Low",
+      "Component": "MCP"
+    }
+  },
+  "6": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgagkB8",
+    "title": "\ud83d\udd17 External Integration Implementation",
+    "fields": {
+      "Title": "\ud83d\udd17 External Integration Implementation",
+      "Type": "Epic",
+      "Priority": "Medium",
+      "Component": "MCP"
+    }
+  },
+  "5": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgagkCE",
+    "title": "\ud83d\uddc4\ufe0f Shared Component Implementation",
+    "fields": {
+      "Title": "\ud83d\uddc4\ufe0f Shared Component Implementation",
+      "Type": "Epic",
+      "Priority": "Medium",
+      "Component": "Workflow"
+    }
+  },
+  "4": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgagkCM",
+    "title": "\u2699\ufe0f Agent Task Workflow Implementation",
+    "fields": {
+      "Title": "\u2699\ufe0f Agent Task Workflow Implementation",
+      "Type": "Epic",
+      "Priority": "High",
+      "Component": "Workflow"
+    }
+  },
+  "3": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgagkCQ",
+    "title": "\ud83e\udde0 Specialized Agent Implementation",
+    "fields": {
+      "Title": "\ud83e\udde0 Specialized Agent Implementation",
+      "Type": "Epic",
+      "Priority": "High",
+      "Component": "Core Agents"
+    }
+  },
+  "2": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgagkCU",
+    "title": "\ud83d\udce1 Model Context Protocol (MCP) Implementation",
+    "fields": {
+      "Title": "\ud83d\udce1 Model Context Protocol (MCP) Implementation",
+      "Type": "Epic",
+      "Priority": "High",
+      "Component": "MCP"
+    }
+  },
+  "66": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgagkCs",
+    "title": "Secure Agent Creation",
+    "fields": {
+      "Title": "Secure Agent Creation",
+      "Type": "User Story",
+      "Priority": "Medium",
+      "Story Points": 5.0,
+      "Epic": "\ud83d\udd04 Core Agent System Implementation",
+      "Component": "Core Agents"
+    }
+  },
+  "65": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgagkCw",
+    "title": "Agent Template Management",
+    "fields": {
+      "Title": "Agent Template Management",
+      "Type": "User Story",
+      "Priority": "High",
+      "Story Points": 5.0,
+      "Epic": "\ud83d\udd04 Core Agent System Implementation",
+      "Component": "Core Agents"
+    }
+  },
+  "64": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgagkC0",
+    "title": "Agent Instance Creation",
+    "fields": {
+      "Title": "Agent Instance Creation",
+      "Type": "User Story",
+      "Priority": "High",
+      "Story Points": 8.0,
+      "Epic": "\ud83d\udd04 Core Agent System Implementation",
+      "Component": "Core Agents"
+    }
+  },
+  "63": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgagkC4",
+    "title": "Task Classification and Prioritization",
+    "fields": {
+      "Title": "Task Classification and Prioritization",
+      "Type": "User Story",
+      "Priority": "Medium",
+      "Story Points": 8.0,
+      "Epic": "\ud83d\udd04 Core Agent System Implementation",
+      "Component": "Core Agents"
+    }
+  },
+  "62": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgagkC8",
+    "title": "Task Analysis and Agent Matching",
+    "fields": {
+      "Title": "Task Analysis and Agent Matching",
+      "Type": "User Story",
+      "Priority": "High",
+      "Story Points": 13.0,
+      "Epic": "\ud83d\udd04 Core Agent System Implementation",
+      "Component": "Core Agents"
+    }
+  },
+  "61": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgagkDA",
+    "title": "Orchestrator MCP Communication",
+    "fields": {
+      "Title": "Orchestrator MCP Communication",
+      "Type": "User Story",
+      "Priority": "High",
+      "Story Points": 8.0,
+      "Epic": "\ud83d\udd04 Core Agent System Implementation",
+      "Component": "Core Agents"
+    }
+  },
+  "60": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgagkDI",
+    "title": "Agent Lifecycle Management",
+    "fields": {
+      "Title": "Agent Lifecycle Management",
+      "Type": "User Story",
+      "Priority": "High",
+      "Story Points": 8.0,
+      "Epic": "\ud83d\udd04 Core Agent System Implementation",
+      "Component": "Core Agents"
+    }
+  },
+  "59": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgagkDM",
+    "title": "GitHub Task Monitoring",
+    "fields": {
+      "Title": "GitHub Task Monitoring",
+      "Type": "User Story",
+      "Priority": "High",
+      "Story Points": 5.0,
+      "Epic": "\ud83d\udd04 Core Agent System Implementation",
+      "Component": "External Integration"
+    }
+  },
+  "58": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgagkDQ",
+    "title": "Implement DevOps Agent",
+    "fields": {
+      "Title": "Implement DevOps Agent",
+      "Type": "User Story",
+      "Priority": "Medium",
+      "Story Points": 8.0,
+      "Epic": "\ud83e\udde0 Specialized Agent Implementation",
+      "Component": "Core Agents"
+    }
+  },
+  "57": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgagkDU",
+    "title": "Implement Documentation Agent",
+    "fields": {
+      "Title": "Implement Documentation Agent",
+      "Type": "User Story",
+      "Priority": "Medium",
+      "Story Points": 5.0,
+      "Epic": "\ud83e\udde0 Specialized Agent Implementation",
+      "Component": "Core Agents"
+    }
+  },
+  "56": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgagkDk",
+    "title": "Implement Tester Agent",
+    "fields": {
+      "Title": "Implement Tester Agent",
+      "Type": "User Story",
+      "Priority": "Medium",
+      "Story Points": 8.0,
+      "Epic": "\ud83e\udde0 Specialized Agent Implementation",
+      "Component": "Core Agents"
+    }
+  },
+  "55": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgagkD0",
+    "title": "Implement Reviewer Agent",
+    "fields": {
+      "Title": "Implement Reviewer Agent",
+      "Type": "User Story",
+      "Priority": "High",
+      "Story Points": 8.0,
+      "Epic": "\ud83e\udde0 Specialized Agent Implementation",
+      "Component": "Core Agents"
+    }
+  },
+  "54": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgagkEA",
+    "title": "Implement Developer Agent",
+    "fields": {
+      "Title": "Implement Developer Agent",
+      "Type": "User Story",
+      "Priority": "High",
+      "Story Points": 13.0,
+      "Epic": "\ud83e\udde0 Specialized Agent Implementation",
+      "Component": "Core Agents"
+    }
+  },
+  "53": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgagkEE",
+    "title": "Implement Shared Component Unit Tests",
+    "fields": {
+      "Title": "Implement Shared Component Unit Tests",
+      "Type": "User Story",
+      "Priority": "Medium",
+      "Story Points": 5.0,
+      "Epic": "\ud83d\udd0d System Testing and Quality Assurance",
+      "Component": "MCP"
+    }
+  },
+  "52": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgagkEI",
+    "title": "Develop Core Agent Unit Tests",
+    "fields": {
+      "Title": "Develop Core Agent Unit Tests",
+      "Type": "User Story",
+      "Priority": "High",
+      "Story Points": 8.0,
+      "Epic": "\ud83d\udd0d System Testing and Quality Assurance",
+      "Component": "Core Agents"
+    }
+  },
+  "51": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgagkEM",
+    "title": "Implement Test Coverage Tracking and Reporting",
+    "fields": {
+      "Title": "Implement Test Coverage Tracking and Reporting",
+      "Type": "User Story",
+      "Priority": "Medium",
+      "Story Points": 5.0,
+      "Epic": "\ud83d\udd0d System Testing and Quality Assurance",
+      "Component": "Core Agents"
+    }
+  },
+  "50": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgagkEQ",
+    "title": "Set Up GitHub Actions Testing Pipeline",
+    "fields": {
+      "Title": "Set Up GitHub Actions Testing Pipeline",
+      "Type": "User Story",
+      "Priority": "High",
+      "Story Points": 5.0,
+      "Epic": "\ud83d\udd0d System Testing and Quality Assurance",
+      "Component": "Workflow"
+    }
+  },
+  "49": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgagkEc",
+    "title": "Create MCP Protocol Test Suite",
+    "fields": {
+      "Title": "Create MCP Protocol Test Suite",
+      "Type": "User Story",
+      "Priority": "High",
+      "Story Points": 8.0,
+      "Epic": "\ud83d\udd0d System Testing and Quality Assurance",
+      "Component": "MCP"
+    }
+  },
+  "48": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgagkEk",
+    "title": "Implement BATS Testing Framework",
+    "fields": {
+      "Title": "Implement BATS Testing Framework",
+      "Type": "User Story",
+      "Priority": "High",
+      "Story Points": 5.0,
+      "Epic": "\ud83d\udd0d System Testing and Quality Assurance",
+      "Component": "Core Agents"
+    }
+  },
+  "47": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgagkEo",
+    "title": "Create Documentation for External Integrations",
+    "fields": {
+      "Title": "Create Documentation for External Integrations",
+      "Type": "User Story",
+      "Priority": "Medium",
+      "Story Points": 5.0,
+      "Component": "External Integration",
+      "Epic": "\ud83d\udd04 Core Agent System Implementation"
+    }
+  },
+  "46": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgagkEw",
+    "title": "Create Integration Tests",
+    "fields": {
+      "Title": "Create Integration Tests",
+      "Type": "User Story",
+      "Priority": "Medium",
+      "Story Points": 5.0,
+      "Component": "External Integration",
+      "Epic": "\ud83d\udd04 Core Agent System Implementation"
+    }
+  },
+  "45": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgagkE4",
+    "title": "Implement Error Handling and Monitoring",
+    "fields": {
+      "Title": "Implement Error Handling and Monitoring",
+      "Type": "User Story",
+      "Priority": "Medium",
+      "Story Points": 5.0,
+      "Component": "External Integration",
+      "Epic": "\ud83d\udd04 Core Agent System Implementation"
+    }
+  },
+  "44": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgagkE8",
+    "title": "Implement Secure Credential Management",
+    "fields": {
+      "Title": "Implement Secure Credential Management",
+      "Type": "User Story",
+      "Priority": "High",
+      "Story Points": 5.0,
+      "Component": "External Integration",
+      "Epic": "\ud83d\udd04 Core Agent System Implementation"
+    }
+  },
+  "43": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgagkFE",
+    "title": "Implement Development Environment",
+    "fields": {
+      "Title": "Implement Development Environment",
+      "Type": "User Story",
+      "Priority": "High",
+      "Story Points": 13.0,
+      "Component": "External Integration",
+      "Epic": "\ud83d\udd04 Core Agent System Implementation"
+    }
+  },
+  "42": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgagkFM",
+    "title": "Implement CI/CD Connector",
+    "fields": {
+      "Title": "Implement CI/CD Connector",
+      "Type": "User Story",
+      "Priority": "Medium",
+      "Story Points": 8.0,
+      "Component": "Workflow",
+      "Epic": "\ud83d\udd04 Core Agent System Implementation"
+    }
+  },
+  "41": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgagkFU",
+    "title": "Implement GitHub Connector",
+    "fields": {
+      "Title": "Implement GitHub Connector",
+      "Type": "User Story",
+      "Priority": "Medium",
+      "Story Points": 8.0,
+      "Component": "Workflow",
+      "Epic": "\ud83d\udd04 Core Agent System Implementation"
+    }
+  },
+  "40": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgagkFc",
+    "title": "Document all Shared Components",
+    "fields": {
+      "Title": "Document all Shared Components",
+      "Type": "User Story",
+      "Priority": "Medium",
+      "Story Points": 5.0,
+      "Component": "Shared Components",
+      "Epic": "\ud83d\udd04 Core Agent System Implementation"
+    }
+  },
+  "39": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgagkFg",
+    "title": "Integrate all Shared Components",
+    "fields": {
+      "Title": "Integrate all Shared Components",
+      "Type": "User Story",
+      "Priority": "Medium",
+      "Story Points": 5.0,
+      "Component": "Workflow",
+      "Epic": "\ud83d\udd04 Core Agent System Implementation"
+    }
+  },
+  "38": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgagkFk",
+    "title": "Implement Performance Metrics component",
+    "fields": {
+      "Title": "Implement Performance Metrics component",
+      "Type": "User Story",
+      "Priority": "Medium",
+      "Story Points": 8.0,
+      "Component": "Testing",
+      "Epic": "\ud83d\udd04 Core Agent System Implementation"
+    }
+  },
+  "37": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgagkFo",
+    "title": "Implement Knowledge Base component",
+    "fields": {
+      "Title": "Implement Knowledge Base component",
+      "Type": "User Story",
+      "Priority": "High",
+      "Story Points": 13.0,
+      "Component": "Testing",
+      "Epic": "\ud83d\udd04 Core Agent System Implementation"
+    }
+  },
+  "36": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgah1ek",
+    "title": "Implement Task History component",
+    "fields": {
+      "Title": "Implement Task History component",
+      "Type": "User Story",
+      "Priority": "Medium",
+      "Epic": "\ud83d\udd04 Core Agent System Implementation",
+      "Story Points": 8.0,
+      "Component": "Shared Components"
+    }
+  },
+  "35": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgah1ew",
+    "title": "Implement Task Queue component",
+    "fields": {
+      "Title": "Implement Task Queue component",
+      "Type": "User Story",
+      "Priority": "Medium",
+      "Epic": "\ud83d\udd04 Core Agent System Implementation",
+      "Story Points": 8.0,
+      "Component": "Shared Components"
+    }
+  },
+  "34": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgah1e4",
+    "title": "Implement Agent State Store component",
+    "fields": {
+      "Title": "Implement Agent State Store component",
+      "Type": "User Story",
+      "Priority": "High",
+      "Epic": "\ud83d\udd04 Core Agent System Implementation",
+      "Story Points": 8.0,
+      "Component": "Shared Components"
+    }
+  },
+  "33": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgah1fQ",
+    "title": "Implement Agent Registry component",
+    "fields": {
+      "Title": "Implement Agent Registry component",
+      "Type": "User Story",
+      "Priority": "High",
+      "Epic": "\ud83d\udd04 Core Agent System Implementation",
+      "Story Points": 8.0,
+      "Component": "Shared Components"
+    }
+  },
+  "32": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgah1fw",
+    "title": "Workflow Testing Suite",
+    "fields": {
+      "Title": "Workflow Testing Suite",
+      "Type": "User Story",
+      "Priority": "Medium",
+      "Epic": "\ud83d\udd04 Core Agent System Implementation",
+      "Story Points": 8.0,
+      "Component": "Workflow"
+    }
+  },
+  "31": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgah1gM",
+    "title": "Workflow Status Tracking Implementation",
+    "fields": {
+      "Title": "Workflow Status Tracking Implementation",
+      "Type": "User Story",
+      "Priority": "Medium",
+      "Epic": "\ud83d\udd04 Core Agent System Implementation",
+      "Story Points": 5.0,
+      "Component": "Workflow"
+    }
+  },
+  "30": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgah1gg",
+    "title": "Workflow Integration Library",
+    "fields": {
+      "Title": "Workflow Integration Library",
+      "Type": "User Story",
+      "Priority": "Medium",
+      "Epic": "\ud83d\udd04 Core Agent System Implementation",
+      "Story Points": 8.0,
+      "Component": "Workflow"
+    }
+  },
+  "29": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgah1hE",
+    "title": "Yield Process Implementation",
+    "fields": {
+      "Title": "Yield Process Implementation",
+      "Type": "User Story",
+      "Priority": "Medium",
+      "Epic": "\ud83d\udd04 Core Agent System Implementation",
+      "Story Points": 13.0,
+      "Component": "Workflow"
+    }
+  },
+  "28": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgah1hs",
+    "title": "Question Handling Implementation",
+    "fields": {
+      "Title": "Question Handling Implementation",
+      "Type": "User Story",
+      "Priority": "Medium",
+      "Epic": "\ud83d\udd04 Core Agent System Implementation",
+      "Story Points": 8.0,
+      "Component": "Workflow"
+    }
+  },
+  "27": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgah1iQ",
+    "title": "Task Documentation Implementation",
+    "fields": {
+      "Title": "Task Documentation Implementation",
+      "Type": "User Story",
+      "Priority": "Medium",
+      "Epic": "\ud83d\udd04 Core Agent System Implementation",
+      "Story Points": 5.0,
+      "Component": "Workflow"
+    }
+  },
+  "26": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgah1io",
+    "title": "Task Decomposition Implementation",
+    "fields": {
+      "Title": "Task Decomposition Implementation",
+      "Type": "User Story",
+      "Priority": "Medium",
+      "Epic": "\ud83d\udd04 Core Agent System Implementation",
+      "Story Points": 8.0,
+      "Component": "Workflow"
+    }
+  },
+  "25": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgah1i8",
+    "title": "Task Analysis Implementation",
+    "fields": {
+      "Title": "Task Analysis Implementation",
+      "Type": "User Story",
+      "Priority": "Medium",
+      "Epic": "\ud83d\udd04 Core Agent System Implementation",
+      "Story Points": 8.0,
+      "Component": "Workflow"
+    }
+  },
+  "24": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgah1jI",
+    "title": "MCP Testing Utilities",
+    "fields": {
+      "Title": "MCP Testing Utilities",
+      "Type": "User Story",
+      "Priority": "Medium",
+      "Epic": "\ud83d\udd04 Core Agent System Implementation",
+      "Story Points": 5.0,
+      "Component": "MCP"
+    }
+  },
+  "23": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgah1jU",
+    "title": "MCP Message Security",
+    "fields": {
+      "Title": "MCP Message Security",
+      "Type": "User Story",
+      "Priority": "Medium",
+      "Epic": "\ud83d\udd04 Core Agent System Implementation",
+      "Story Points": 8.0,
+      "Component": "MCP"
+    }
+  },
+  "22": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgah1jg",
+    "title": "MCP Logging and Debugging",
+    "fields": {
+      "Title": "MCP Logging and Debugging",
+      "Type": "User Story",
+      "Priority": "Medium",
+      "Epic": "\ud83d\udd04 Core Agent System Implementation",
+      "Story Points": 5.0,
+      "Component": "MCP"
+    }
+  },
+  "21": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgah1kA",
+    "title": "MCP Error Handling and Recovery",
+    "fields": {
+      "Title": "MCP Error Handling and Recovery",
+      "Type": "User Story",
+      "Priority": "Medium",
+      "Epic": "\ud83d\udd04 Core Agent System Implementation",
+      "Story Points": 8.0,
+      "Component": "MCP"
+    }
+  },
+  "20": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgah1kQ",
+    "title": "MCP Message Routing",
+    "fields": {
+      "Title": "MCP Message Routing",
+      "Type": "User Story",
+      "Priority": "Medium",
+      "Epic": "\ud83d\udd04 Core Agent System Implementation",
+      "Story Points": 5.0,
+      "Component": "MCP"
+    }
+  },
+  "19": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgah1kY",
+    "title": "STDIO-Based MCP Communication",
+    "fields": {
+      "Title": "STDIO-Based MCP Communication",
+      "Type": "User Story",
+      "Priority": "Medium",
+      "Epic": "\ud83d\udd04 Core Agent System Implementation",
+      "Story Points": 5.0,
+      "Component": "MCP"
+    }
+  },
+  "18": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgah1ks",
+    "title": "MCP Message Validation",
+    "fields": {
+      "Title": "MCP Message Validation",
+      "Type": "User Story",
+      "Priority": "Medium",
+      "Epic": "\ud83d\udd04 Core Agent System Implementation",
+      "Story Points": 5.0,
+      "Component": "MCP"
+    }
+  },
+  "17": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgah1k4",
+    "title": "MCP Message Structure Implementation",
+    "fields": {
+      "Title": "MCP Message Structure Implementation",
+      "Type": "User Story",
+      "Priority": "Medium",
+      "Epic": "\ud83d\udd04 Core Agent System Implementation",
+      "Story Points": 8.0,
+      "Component": "MCP"
+    }
+  },
+  "8": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgah1lU",
+    "title": "Epic Prioritization and Implementation Order",
+    "fields": {
+      "Title": "Epic Prioritization and Implementation Order",
+      "Type": "Epic",
+      "Priority": "Medium",
+      "Epic": "\ud83d\udd04 Core Agent System Implementation",
+      "Story Points": 3.0,
+      "Component": "Core Agents"
+    }
+  },
+  "13": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgajf50",
+    "title": "Task Classification and Prioritization",
+    "fields": {
+      "Title": "Task Classification and Prioritization",
+      "Type": "User Story",
+      "Priority": "High",
+      "Epic": "\ud83d\udd04 Core Agent System Implementation",
+      "Story Points": 8.0,
+      "Component": "Core Agents"
+    }
+  },
+  "14": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgajf6E",
+    "title": "Agent Instance Creation",
+    "fields": {
+      "Title": "Agent Instance Creation",
+      "Type": "User Story",
+      "Priority": "High",
+      "Epic": "\ud83d\udd04 Core Agent System Implementation",
+      "Story Points": 8.0,
+      "Component": "Core Agents"
+    }
+  },
+  "15": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgajf6U",
+    "title": "Agent Template Management",
+    "fields": {
+      "Title": "Agent Template Management",
+      "Type": "User Story",
+      "Priority": "High",
+      "Epic": "\ud83d\udd04 Core Agent System Implementation",
+      "Story Points": 5.0,
+      "Component": "Core Agents"
+    }
+  },
+  "9": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgajf6w",
+    "title": "GitHub Task Monitoring",
+    "fields": {
+      "Title": "GitHub Task Monitoring",
+      "Type": "User Story",
+      "Priority": "High",
+      "Epic": "\ud83d\udd04 Core Agent System Implementation",
+      "Story Points": 5.0,
+      "Component": "Core Agents"
+    }
+  },
+  "12": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgajf68",
+    "title": "Task Analysis and Agent Matching",
+    "fields": {
+      "Title": "Task Analysis and Agent Matching",
+      "Type": "User Story",
+      "Priority": "High",
+      "Epic": "\ud83d\udd04 Core Agent System Implementation",
+      "Story Points": 13.0,
+      "Component": "Core Agents"
+    }
+  },
+  "10": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgajf7M",
+    "title": "Agent Lifecycle Management",
+    "fields": {
+      "Title": "Agent Lifecycle Management",
+      "Type": "User Story",
+      "Priority": "High",
+      "Epic": "\ud83d\udd04 Core Agent System Implementation",
+      "Story Points": 8.0,
+      "Component": "Core Agents"
+    }
+  },
+  "11": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgajf7g",
+    "title": "Orchestrator MCP Communication",
+    "fields": {
+      "Title": "Orchestrator MCP Communication",
+      "Type": "User Story",
+      "Priority": "High",
+      "Epic": "\ud83d\udd04 Core Agent System Implementation",
+      "Story Points": 8.0,
+      "Component": "Core Agents"
+    }
+  },
+  "16": {
+    "item_id": "PVTI_lAHOBJ7Qkc4A5SDbzgajf7w",
+    "title": "Secure Agent Creation",
+    "fields": {
+      "Title": "Secure Agent Creation",
+      "Type": "User Story",
+      "Priority": "High",
+      "Epic": "\ud83d\udd04 Core Agent System Implementation",
+      "Story Points": 5.0,
+      "Component": "Core Agents"
+    }
+  }
+}

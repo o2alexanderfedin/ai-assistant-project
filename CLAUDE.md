@@ -4,6 +4,7 @@
 - All discussions and decisions should be logged in `./docs/logs/YYYY-MM-DD/topic.md`
 - Architecture documents should be maintained in `./docs/architecture/` with proper subdirectories
 - This file (CLAUDE.md) will contain process improvements and rules
+- Reusable solutions and patterns are stored in `.claude/rules/` for reference
 
 ## Documentation Structure
 - `/docs/architecture/components/` - Individual agent components and subsystems
@@ -11,6 +12,7 @@
 - `/docs/architecture/diagrams/` - Visual representations of the architecture
 - `/docs/architecture/decisions/` - Key architectural decisions and rationales
 - `/docs/logs/YYYY-MM-DD/` - Daily logs organized by date and topic
+- `/.claude/rules/` - Reusable solutions and patterns for common problems
 
 ## Document Format Requirements
 - Every document must include:
@@ -87,6 +89,16 @@
 - Never stop at the planning stage without implementation
 - Complete all items in task lists before considering work complete
 - Document completion status in commit messages and pull requests
+
+# Solution Patterns
+
+## Rule Repository
+- All reusable solutions should be documented in `.claude/rules/`
+- Follow the template in `.claude/rules/rule-creation-policy.md`
+- Create rules immediately after solving non-trivial problems
+- Reference related rules when relevant
+- Rules should include working examples and common error solutions
+- Regularly review and update rules to keep them current
 
 # Implementation Rules
 
